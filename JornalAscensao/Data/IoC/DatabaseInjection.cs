@@ -1,6 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace JornalAscensao.Data.IoC;
 
-public class DatabaseInjection
+public static class DatabaseInjection
 {
-    
+    public static IServiceCollection AdicionarBancoDeDados(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddDbContext<AppDbContext>(options =>
+        {
+            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+        });
+        return services;
+    }
 }
