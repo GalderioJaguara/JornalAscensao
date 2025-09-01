@@ -1,0 +1,7 @@
+﻿services:
+  jornalascensao:
+    image: jornalascensao
+    build:
+      context: .
+      dockerfile: JornalAscensao/Dockerfile
+
