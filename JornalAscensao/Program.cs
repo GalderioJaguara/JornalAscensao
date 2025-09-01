@@ -1,7 +1,13 @@
+using JornalAscensao.Data.IoC;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services
+    .AdicionarBancoDeDados(builder.Configuration)
+    .AdicionarIdentity();
 
 var app = builder.Build();
 
