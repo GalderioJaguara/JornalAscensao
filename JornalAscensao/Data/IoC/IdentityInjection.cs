@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Identity;
 
 namespace JornalAscensao.Data.IoC;
 
-public static class DatabaseInjection
+public static class IdentityInjection
 {
-    public static IServiceCollection AdicionarBancoDeDados(IServiceCollection services,  IConfiguration configuration)
+    public static IServiceCollection AdicionarIdentity(this IServiceCollection services)
     {
         services.AddIdentity<Usuario, IdentityRole>(options =>
         {
