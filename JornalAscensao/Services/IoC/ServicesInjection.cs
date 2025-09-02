@@ -7,6 +7,7 @@ public static class ServicesInjection
     public static IServiceCollection AdicionarServicos(this IServiceCollection services)
     {
         services.AddScoped<IAutenticacaoService, AutenticacaoService>();
+        services.AddScoped<IPautaService, PautaService>();
         return services;
     }
 }
