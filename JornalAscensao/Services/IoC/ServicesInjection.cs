@@ -8,6 +8,7 @@ public static class ServicesInjection
     {
         services.AddScoped<IAutenticacaoService, AutenticacaoService>();
         services.AddScoped<IPautaService, PautaService>();
+        services.AddScoped<IUsuarioService, UsuarioService>();
         return services;
     }
 }
