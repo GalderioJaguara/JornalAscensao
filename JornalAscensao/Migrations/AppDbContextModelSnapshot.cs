@@ -22,6 +22,72 @@ namespace JornalAscensao.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("JornalAscensao.Models.Artigo", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Aprovado")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("Atualizado")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("AutorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Criado")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Excluido")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Gancho")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("Imagem")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<Guid>("PautaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("Publicado")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Referencias")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RevisorId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Texto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AutorId");
+
+                    b.HasIndex("PautaId");
+
+                    b.HasIndex("RevisorId");
+
+                    b.ToTable("Artigos");
+                });
+
             modelBuilder.Entity("JornalAscensao.Models.Pauta", b =>
                 {
                     b.Property<Guid>("Id")
@@ -284,6 +350,32 @@ namespace JornalAscensao.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("JornalAscensao.Models.Artigo", b =>
+                {
+                    b.HasOne("JornalAscensao.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("AutorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JornalAscensao.Models.Pauta", "Pauta")
+                        .WithMany()
+                        .HasForeignKey("PautaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JornalAscensao.Models.Usuario", "Revisor")
+                        .WithMany()
+                        .HasForeignKey("RevisorId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Pauta");
+
+                    b.Navigation("Revisor");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("JornalAscensao.Models.Pauta", b =>
