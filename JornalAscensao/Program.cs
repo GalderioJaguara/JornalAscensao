@@ -1,4 +1,5 @@
 using JornalAscensao.Data.IoC;
+using JornalAscensao.Services.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +8,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services
     .AdicionarBancoDeDados(builder.Configuration)
-    .AdicionarIdentity();
+    .AdicionarIdentity()
+    .AdicionarServicos();
 
 var app = builder.Build();
 
