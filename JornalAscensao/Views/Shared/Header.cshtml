@@ -1,0 +1,50 @@
+@using JornalAscensao.Utils
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<Usuario> UserManager;
+<header>
+    <div class="header-welcome-section px-2">
+        <div class="d-flex justify-content-between align-items-center py-2">
+            <div>
+                <p class="text-capitalize">@LayoutUtils.GetData()</p>
+            </div>
+            @if (@User.Identity.IsAuthenticated)
+            {
+                <div class="d-flex gap-2 align-items-center">
+                    <p>Bem vindo: <a class="text-decoration-underline" asp-action="Index" asp-controller="Colaborador">@UserManager.GetUserName(User)</a></p>
+                    <form asp-action="Logout" asp-controller="Login">
+                        <button type="submit" class="btn header-welcome-list button-logout">Sair</button>
+                    </form>
+                </div>
+            }
+            else
+            {
+                <div class="d-flex align-items-center gap-4">
+                    <p>Cadastre-se para colaborar conosco</p>
+                    <ul class="d-flex align-items-center justify-content-center gap-2 ">
+                        <li class="header-welcome-list"><a asp-action="Index" asp-controller="Login">Entrar</a></li>
+                        <li class="header-welcome-list"><a asp-action="Index" asp-controller="Cadastrar">Cadastre-se</a></li>
+                    </ul>
+                </div>
+            }
+
+        </div>
+        <hr/>
+    </div>
+    
+    <h1 class="text-center py-4 title">
+        <a class="navbar-brand serif title fw-bold text-primary" asp-area="" asp-controller="Home" asp-action="Index">Ascensão</a>
+    </h1>
+    <nav class="bg-primary text-light">
+        <div>
+            <div class="d-flex justify-content-center align-items-center">
+                <ul class="nav-list gap-4 mb-0">
+                    <li class="nav-item"><a asp-controller="Home" asp-action="Index">Inicio</a></li>
+                    <li class="nav-item"><a asp-controller="Artigos" asp-action="Index">Artigos</a></li>
+                    <li class="nav-item"><a>Análises</a></li>
+                    <li class="nav-item"><a asp-controller="Pautas" asp-action="Index">Pautas e Assuntos</a></li>
+                    <li class="nav-item"><a>Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
