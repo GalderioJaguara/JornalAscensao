@@ -1,0 +1,66 @@
+@model IEnumerable<ArtigoHomeViewModel>
+@using JornalAscensao.Utils
+@{
+    ViewBag.Title = "Artigos dos colaboradores";
+    Layout = "_Layout";
+}
+
+<div class="py-4">
+    <div>
+        <h2 class="title">Artigos</h2>
+    </div>
+    @if (Model != null && Model.Any())
+    {
+        <div class="row my-4">
+            @foreach (var artigo in Model)
+            {
+                    <div class="col-lg-4 mb-4">
+                        <div>
+                            <img alt="@artigo.Titulo" class="card-img-top object-fit-cover image-card" src="@artigo.Imagem" loading="lazy"/>
+                        </div>
+                        <div class="p-2">
+                            <div class="pautas-card-content-header mb-2 flex-wrap">
+                                <p class="text-secondary">@LayoutUtils.GetData(@artigo.Publicado ?? DateTime.Today) </p>
+                                <p class="small text-secondary"><span class="pointer"></span>Por @artigo.AutorApelido</p>
+                            </div>
+                            <h3 class="fw-bold serif mb-2 text-break">
+                                <a class="link-artigo fs-5" asp-controller="Artigos" asp-action="Artigo" asp-route-id="@artigo.Id">@artigo.Titulo</a>
+                            </h3>
+                            <p class="text-break" asp-controller="Artigos">@artigo.Gancho</p>
+                        </div>
+                    </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="py-4">
+            <p class="fs-5">Ainda não há artigos escritos. Seja o primeiro a criar um, acessando a área de "Pautas".</p>
+        </div>
+    }
+</div>
+@if (TempData["error"] != null)
+{
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Ascensão</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["error"]
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = (event) => {
+            const toastLiveExample = document.getElementById('liveToast')
+            const toast = new bootstrap.Toast(toastLiveExample)
+            toast.show()
+            setTimeout(() => {
+                toast.hide();
+            }, 5000)
+        }
+    </script>
+
+}

@@ -39,7 +39,7 @@
                                 <a role="button" href="@pauta.LinkConteudo" class="btn mb-2 btn-sm button-secondary">Ver Conteúdo</a>
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <a role="button" class="btn mb-2 btn-sm button-secondary" asp-controller="Artigos" asp-action="CriarArtigo" asp-route-id="@pauta.Id">Escrever Artigo</a>
+                                    <a role="button" class="btn mb-2 btn-sm button-secondary" asp-controller="Artigos" asp-action="Escrever" asp-route-id="@pauta.Id">Escrever Artigo</a>
                                     
                                     @if (User.IsInRole("Admin") || User.IsInRole("Moderador") || UserManager.GetUserId(SignInManager.Context.User) == pauta.UsuarioId)
                                     {

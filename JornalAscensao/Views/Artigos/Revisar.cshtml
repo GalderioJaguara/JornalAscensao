@@ -1,0 +1,66 @@
+@model ArtigoViewModel
+
+@{
+    ViewBag.Title = $"Revisar artigo {Model.Titulo}";
+    Layout = "_Layout";
+}
+
+<<div class="container-sm py-4">
+    <h2>Escrever Artigo</h2>
+    <div class="row">
+        <form asp-controller="Artigos" asp-action="AprovarArtigo" method="post">
+            <div class="d-flex flex-column py-4 col-12">
+                <div class="d-flex flex-column mb-4">
+                    @* titulo *@
+                    <label asp-for="Titulo" class="form-label">Título</label>
+                    <input type="text" asp-for="Titulo" class="form-control" value="@Model.Titulo"/>
+                    <span asp-validation-for="Titulo" class="form-text"></span>
+                </div>
+                <div class="d-flex flex-column mb-4">
+                    @* gancho *@
+                    <label asp-for="Gancho" class="form-label">Gancho</label>
+                    <input type="text" asp-for="Gancho" class="form-control" placeholder="Pequeno parágrafo inicial (Máximo 255 caracteres)" value="@Model.Gancho"/>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span asp-validation-for="Gancho" class="form-text"></span>
+                        <span><span id="gancho-char">0</span> Caracteres</span>
+                    </div>
+                </div>
+                <div class="d-flex flex-column mb-4">
+                    @* texto *@
+                    <label asp-for="Texto" class="form-label">Texto Principal do Artigo</label>
+                    <textarea asp-for="Texto" class="form-control text-h" placeholder="Texto Principal do Artigo (Mínimo 1000 caracteres)" value="@Model.Texto"></textarea>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span asp-validation-for="Texto" class="form-text"></span>
+                        <span><span id="text-char">0</span> Caracteres</span>
+                    </div>
+                </div>
+                <div class="d-flex flex-column mb-4">
+                    @* referencias *@
+                    <label asp-for="Referencias" class="form-label">Referências</label>
+                    <textarea asp-for="Referencias" class="form-control" placeholder="Referências Ssadas no Artigo (Máximo 255 caracteres)" value="@Model.Referencias"></textarea>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span asp-validation-for="Referencias" class="form-text"></span>
+                        <span><span id="ref-char">0</span> Caracteres</span>
+                    </div>
+                </div>
+                <div class="d-flex flex-column mb-4">
+                    @* imagem *@
+                    <label asp-for="Imagem" class="form-label">Link da Imagem</label>
+                    <input type="text" asp-for="Imagem" class="form-control" value="@Model.Imagem"/>
+                    <span asp-validation-for="Imagem" class="form-textz"></span>
+                </div>
+                <div class="mb-4">
+                    <input type="checkbox" class="btn-check" asp-for="Aprovado" autocomplete="off">
+                    <label class="btn btn-success" asp-for="Aprovado">Aprovar Artigo</label>
+                </div>
+                
+                <div class="d-flex align-items-center gap-2">
+                    <input type="hidden" asp-for="Id"/>
+                    <button type="submit" class="btn button-primary">Salvar Artigo e Publicar</button>
+                    <a role="button" class="btn button-secondary" asp-action="Fila">Cancelar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

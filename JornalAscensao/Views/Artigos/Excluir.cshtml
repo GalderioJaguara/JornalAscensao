@@ -1,0 +1,83 @@
+@using JornalAscensao.Utils
+@model ArtigoViewModel
+
+@{
+    ViewBag.Title = $"Deletar - {Model.Titulo}";
+    Layout = "_Layout";
+}
+
+<div class="py-4">
+    <div class="row mb-4">
+        <div class="col-lg-8">
+            <div class="container-fluid">
+                <h2 class="mb-2 serif fw-medium">@Model.Titulo</h2>
+                <p>@Model.Gancho</p>
+                <div class="mt-3 mb-4 border-bottom border-top">
+                    <ul class="py-2 d-flex gap-2 align-items-center">
+                        <li class="fw-medium">Por @Model.AutorApelido</li>
+                        <li>@LayoutUtils.GetData(Model.Publicado)</li>
+                    </ul>
+                </div>
+                <div>
+                    <div>
+                        <img src="@Model.Imagem" alt="@Model.Titulo" class="img-fluid"/>
+                    </div>
+                    <div class="py-4">
+                        <p>@Model.Texto</p>
+                    </div>
+                    @if (Model.Referencias != null)
+                    {
+                        <div>
+                            <h4 class="title">Referências:</h4>
+                            <p>@Model.Referencias</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card p-4">
+                <span class="d-block text-center">Publicidade</span>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn button-primary" id="ExcluirArtigoModal">Excluir Arigo</button>
+            <a role="button" asp-controller="Artigos" asp-action="Index" class="btn button-secondary">Cancelar</a>
+        </div>
+    </div>
+</div>
+
+<div class="position-relative">
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Excluir Artigo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Você tem certeza que deseja excluir este artigo? <span class="text-danger fw-medium">Esta ação não poderá ser desfeita</span>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="BotaoCancelar" class="button-outline button-light btn" data-bs-dismiss="modal">Cancelar</button>
+                    <form asp-action="Excluir" method="post">
+                        <button type="submit" id="teste" class="btn button-primary">Excluir</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#ExcluirArtigoModal').on('click', function() {
+       $('.modal').show(); 
+    });
+    $('#BotaoCancelar').on('click', function() {
+        $('.modal').hide();
+    });
+    
+</script>
+

@@ -1,0 +1,46 @@
+@model ArtigoViewModel
+@using JornalAscensao.Utils
+@{
+    ViewBag.Title = @Model.Titulo;
+    Layout = "_Layout";
+}
+
+<div class="row py-4">
+    <div class="col-lg-8">
+        <div class="container-fluid">
+            <h2 class="mb-2 serif fw-medium">@Model.Titulo</h2>
+            <p>@Model.Gancho</p>
+            <div class="mt-3 mb-4 border-bottom border-top">
+                <ul class="py-2 d-flex gap-2 align-items-center">
+                    <li class="fw-medium">Por @Model.AutorApelido</li>
+                    <li>@LayoutUtils.GetData(Model.Publicado)</li>
+                </ul>
+            </div>
+            <div>
+                <div>
+                    <img src="@Model.Imagem" alt="@Model.Titulo" class="img-fluid"/>
+                </div>
+                <div class="py-4">
+                    <p>@Model.Texto</p>
+                </div>
+                @if (Model.Referencias != null)
+                {
+                    <div class="mb-5">
+                        <h4 class="title my-2">Referências:</h4>
+                        <p>@Model.Referencias</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card p-4">
+            <span class="d-block text-center">Publicidade</span>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="p-4">
+        <span class="d-block text-center">Publicidade</span>
+    </div>
+</div>

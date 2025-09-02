@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using JornalAscensao.Migrations;
 
 namespace JornalAscensao.Models;
 

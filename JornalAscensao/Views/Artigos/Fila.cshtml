@@ -1,0 +1,54 @@
+@using JornalAscensao.Utils
+@model IEnumerable<ArtigoViewModel>
+
+@{
+    ViewBag.Title = "Artigos à Revisar";
+    Layout = "_Layout";
+}
+
+<div class="py-4">
+    <div class="card p-4">
+        <h2 class="title serif fs-3 mb-2">Revisão de Artigos</h2>
+        <p class="text-secondary fs-5">Gerencie e revise todos os artigos submetidos a revisão</p>
+        <div class="px-4 pb-4">
+            <table class="table">
+                <thead>
+                <tr>    
+                    <th scope="col"></th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Aprovação</th>
+                    <th scope="col">Revisar</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach (var artigo in Model)
+                    {
+                        <tr>
+                            <th scope="row"><img src="@artigo.Imagem" class="rounded-1" style="width: 4rem; height: auto;"/></th> 
+                            <td>@artigo.Titulo</td>
+                            <td>
+                                <span class="btn btn-sm btn-outline-danger btn-sm rounded-5 ">@artigo.Categoria</span>
+                            </td>
+                            <td>
+                                <span class="btn btn-outline-dark btn-sm rounded-5">@ArtigoUtils.RetornarStatus(@artigo.Status)</span>
+                            </td>
+                            <td>
+                                @if (@artigo.Aprovado == true)
+                                {
+                                    <span class="btn btn-sm btn-outline-success btn-sm rounded-5">Aprovado</span>
+                                }
+                                else
+                                {
+                                    <span class="btn btn-sm btn-outline-danger btn-sm rounded-5">Não Aprovado</span>
+                                }
+                            </td>
+                            <td><a role="button" asp-action="Revisar" asp-route-id="@artigo.Id"><i class="bi bi-pen"></i></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -35,7 +35,8 @@ public class ArtigoViewModel
     public string? RevisorId { get; set; }
     
     public string? RevisorApelido { get; set; }
-    public DateTime Criado { get; set; }
+    
+    public DateTime Publicado { get; set; }
     
     public DateTime? Atualizado { get; set; }
     
