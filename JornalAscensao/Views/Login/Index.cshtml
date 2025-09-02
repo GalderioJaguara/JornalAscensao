@@ -1,0 +1,41 @@
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+<div class="login-wrapper">
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Entrar</h2>
+            <p>Entre com suas credenciais para acessar o sistema
+            </p>
+        </div>
+
+        <form asp-action="Index" method="post" class="login-form">
+            <div class="login-input-container">
+                <label asp-for="Email" class="login-input-label">Email:</label>
+                <input type="text" asp-for="Email" class="form-control" placeholder="Ex: email@email.com"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="login-input-container">
+                <label asp-for="Senha" class="login-input-label">Senha:</label>
+                <input type="password"  asp-for="Senha" class="form-control" placeholder="********"/>
+                <span asp-validation-for="Senha" class="text-danger"></span>
+            </div>
+            <div class="my-3 d-flex align-items-center gap-2">
+                <label class="form-label m-0" asp-for="LembrarDeMim">Lembre-se de mim</label>
+                <input type="checkbox" class="form-check-input" asp-for="LembrarDeMim" />
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger fw-medium mb-2"></div>
+            <button type="submit" class="btn button-primary">Entrar</button>
+            <div class="my-2">
+                <p class="text-center">
+                    <a class="text-decoration-none text-primary">Esqueci minha senha</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
