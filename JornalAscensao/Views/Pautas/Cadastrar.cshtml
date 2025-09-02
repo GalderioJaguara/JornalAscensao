@@ -1,0 +1,72 @@
+@model PautaFormViewModel
+@using JornalAscensao.Utils
+@{
+    ViewBag.Title = "Cadastrar Pauta";
+    Layout = "_Layout";
+}
+
+<div class="py-4 container-sm">
+    <div class="form-container m-auto">
+        <h3 class="mb-4">Nova Pauta/Análise</h3>
+        <form asp-controller="Pautas" asp-action="Cadastrar" method="post">
+            <div class="pautas-form-selects-container">
+                <div class="pautas-form-content">
+                    <label asp-for="Tipo">Tipo</label>
+                    <select class="form-control" asp-for="Tipo" asp-items="Model.Tipos">
+                        <option value="" disabled="disabled" selected="selected">Selecione um Tipo</option>
+                    </select>
+                    <span asp-validation-for="Tipo"></span>
+                </div>
+                <div class="pautas-form-content">
+                    <label asp-for="Categoria">Categoria</label>
+                    <select class="form-control" asp-for="Categoria" asp-items="Model.Categorias">
+                        <option value="" disabled="disabled" selected="selected">Selecione uma Categoria</option>
+                    </select>
+                    <span asp-validation-for="Categoria"></span>
+                </div>
+            </div>
+            <div class="pautas-form-content">
+                <label asp-for="Titulo">Titulo</label>
+                <input class="form-control" type="text" asp-for="Titulo"/>
+                <span asp-validation-for="Titulo"></span>
+            </div>
+            <div class="pautas-form-content">
+                <label asp-for="Descricao">Descrição</label>
+                <textarea class="form-control" asp-for="Descricao"></textarea>
+                <span asp-validation-for="Descricao"></span>
+            </div>
+            <div class="pautas-form-content">
+                <label asp-for="Imagem">Link da Imagem</label>
+                <input class="form-control" type="text" asp-for="Imagem"/>
+            </div>
+            <div class="pautas-form-content">
+                <label class="link-label"asp-for="LinkConteudo">Link do Conteúdo da Pauta</label>
+                <input class="link-input form-control" value="@Model.LinkConteudo" asp-for="LinkConteudo" type="text"/>
+            </div>
+            <div class="pautas-form-content">
+                <span>@Html.ValidationSummary(String.Empty)</span>
+            </div>
+            <div class="pautas-form-buttons-container">
+                <button type="submit" class="button-primary btn">Criar Pauta</button>
+                <a class="button-outline button-light btn" role="button" asp-controller="Pautas" asp-action="Index">Cancelar</a>
+            </div>
+        </form>
+        <script>
+            $(document).ready(function () {
+                $('.link-input').on('change', function (e) {
+                    $.ajax({
+                        url: `/Pautas/GetLinkConteudoInformacao?url=${this.value}`,
+                        type: 'GET',
+                        
+                    }).done(function (response) {
+                        $('#Titulo').val(response.titulo);
+                        $('#Descricao').val(response.descricao);
+                        $('#Imagem').val(response.imagem);
+                    }).fail(function (err) {
+                        console.log(err);
+                    })
+                });
+            });
+        </script>
+    </div>
+</div>

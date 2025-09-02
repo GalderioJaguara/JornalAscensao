@@ -1,0 +1,56 @@
+@model PautaFormViewModel
+
+@{
+    ViewBag.Title = "Editar Pauta";
+    Layout = "_Layout";
+}
+<div class="content-container">
+    <h3>Editar Pauta/Analise</h3>
+    <div class="form-container">
+        <form asp-controller="Pautas" asp-action="Editar" method="post">
+            <div class="pautas-form-selects-container">
+                <div class="pautas-form-content">
+                    <label asp-for="Tipo">Tipo</label>
+                    <select value="@Model.Tipo" disabled="disabled" class="form-control" asp-for="Tipo" asp-items="Model.Tipos">
+                        <option value="" disabled="disabled" selected="selected" >Selecione um Tipo</option>
+                    </select>
+                    <span asp-validation-for="Tipo"></span>
+                    <input type="hidden" value="@Model.Tipo" asp-for="Tipo" readonly="readonly" />
+                </div> 
+                <div class="pautas-form-content">
+                    <label asp-for="Categoria">Categoria</label>
+                    <select value="@Model.Categoria" class="form-control" asp-for="Categoria" asp-items="Model.Categorias">
+                        <option value="" disabled="disabled" selected="selected">Selecione uma Categoria</option>
+                    </select>
+                    <span asp-validation-for="Categoria"></span>
+                </div>
+            </div>
+            <div class="pautas-form-content">
+                <label asp-for="Titulo">Titulo</label>
+                <input class="form-control" value="@Model.Titulo" type="text" asp-for="Titulo" />
+                <span asp-validation-for="Titulo"></span>
+            </div>
+            <div class="pautas-form-content">
+                <label asp-for="Descricao">Descrição</label>
+                <textarea class="form-control" value="@Model.Descricao" asp-for="Descricao"></textarea>
+                <span asp-validation-for="Descricao"></span>
+            </div>
+            <div class="pautas-form-content">
+                <label asp-for="Imagem">Link da Imagem</label>
+                <input class="form-control" value="@Model.Imagem" type="text" asp-for="Imagem" />
+            </div>
+            <div class="pautas-form-content">
+                <label class="link-label"asp-for="LinkConteudo">Link do Conteúdo da Pauta</label>
+                <input class="link-input form-control" value="@Model.LinkConteudo" asp-for="LinkConteudo" readonly type="text"/>
+            </div>
+            <div class="pautas-form-content">
+                <span>@Html.ValidationSummary(String.Empty)</span>
+            </div>
+            <div class="pautas-form-buttons-container">
+                <button type="submit" class="button-primary btn">Editar Pauta</button>
+                <a class="button-outline button-light btn" role="button" asp-controller="Pautas" asp-action="Index">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+

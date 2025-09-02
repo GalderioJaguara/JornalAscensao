@@ -1,0 +1,67 @@
+@model IEnumerable<PautaViewModel>
+@using JornalAscensao.Utils
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<Usuario> UserManager
+@inject SignInManager<Usuario> SignInManager
+
+@{
+    ViewBag.Title = "Pautas e Análises";
+    Layout = "_Layout";
+}
+
+<div class="py-4">
+    <div class="pautas-header mb-4">
+        <h2 class="title">Sugestão de Pautas e Análises</h2>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a class="btn button-primary" asp-controller="Pautas" asp-action="Cadastrar" role="button">Sugerir</a>
+        }
+    </div>
+    @if (Model != null && Model.Any())
+    {
+            <div class="row">
+                 @foreach (var pauta in Model)
+                {
+                    <div class="col-lg-3 mb-4">
+                        <div>
+                            <img alt="@pauta.Titulo" class="card-img-top object-fit-cover image-card" src="@pauta.Imagem" loading="lazy"/>
+                        </div>
+                        <div class="pautas-card-content">
+                            <div class="pautas-card-content-header mb-2 flex-wrap">
+                                <p class="button-small button-rounded button-outline-tertiary">@pauta.Tipo</p>
+                                <p class="text-secondary">@LayoutUtils.GetData(@pauta.Criado)</p>
+                                <p class="small text-secondary"><span class="pointer"></span>Por @pauta.UsuarioApelido</p>
+                            </div>
+                            <h3 class="fw-bold fs-5 serif mb-2 text-break">@pauta.Titulo</h3>
+                            <p class="text-break">@pauta.Descricao</p>
+                            <div class="mt-2 col-sm-12 flex-wrap gap-2">
+                                <a role="button" href="@pauta.LinkConteudo" class="btn mb-2 btn-sm button-secondary">Ver Conteúdo</a>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a role="button" class="btn mb-2 btn-sm button-secondary" asp-controller="Artigos" asp-action="CriarArtigo" asp-route-id="@pauta.Id">Escrever Artigo</a>
+                                    
+                                    @if (User.IsInRole("Admin") || User.IsInRole("Moderador") || UserManager.GetUserId(SignInManager.Context.User) == pauta.UsuarioId)
+                                    {
+                                        <a role="button" class="btn mb-2 btn-sm button-secondary" asp-action="Editar" asp-route-id="@pauta.Id">Editar</a>
+                                    }
+                                    @if (User.IsInRole("Admin") || User.IsInRole("Moderador"))
+                                    {
+                                        <a role="button" class="btn mb-2 btn-sm button-secondary" asp-action="Excluir" asp-route-id="@pauta.Id">Excluir</a>
+                                    }
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+    }
+    else
+    {
+        <div class="pautas-content-container">
+            <p class="fs-5">Nenhuma pauta sugerida ainda. Clique em "Sugerir Pauta" para adicionar a primeira.</p>
+        </div>
+    }
+    
+</div>
