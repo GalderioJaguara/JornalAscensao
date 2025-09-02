@@ -9,21 +9,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d7ed489-4a83-4601-bb9e-410f45ed5fb6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/PautasController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/BaseModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/Pauta.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/PautaFormViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/PautaMetadados.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/PautaViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IPautaService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Services/PautaService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Utils/PautaUtils.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Cadastrar.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Editar.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Dtos/ArtigoPendenteDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/Artigo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoFormViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoHomeViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IArtigoService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Services/ArtigoService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JornalAscensao/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Data/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/JornalAscensao.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/JornalAscensao.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/IoC/ServicesInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/IoC/ServicesInjection.cs" afterDir="false" />
     </list>
@@ -55,6 +49,9 @@
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Controllers/CadastrarController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Data/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
@@ -170,7 +167,7 @@
       <option name="presentableId" value="Default" />
       <updated>1756760887862</updated>
       <workItem from="1756760889441" duration="2807000" />
-      <workItem from="1756840642359" duration="7464000" />
+      <workItem from="1756840642359" duration="9964000" />
     </task>
     <task id="LOCAL-00001" summary="Estilização inicial do layout com variáveis CSS, adição de Partial Header, título atualizado e utils para formatação de data">
       <option name="closed" value="true" />
@@ -212,7 +209,47 @@
       <option name="project" value="LOCAL" />
       <updated>1756844100605</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Adição do serviço de pautas, incluindo interfaces, modelos, injeção de dependências, métodos CRUD e suporte a metadados">
+      <option name="closed" value="true" />
+      <created>1756849917645</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1756849917645</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Migrations pauta">
+      <option name="closed" value="true" />
+      <created>1756849939034</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1756849939034</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Criação de um modelo base para as entidades">
+      <option name="closed" value="true" />
+      <created>1756849951419</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1756849951419</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Criação da página principal das pautas, página de criação e edição de pautas">
+      <option name="closed" value="true" />
+      <created>1756849993519</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1756849993519</updated>
+    </task>
+    <task id="LOCAL-00010" summary="csproj e workspace">
+      <option name="closed" value="true" />
+      <created>1756850019713</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1756850019713</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +264,12 @@
     <MESSAGE value="Página de Cadastro" />
     <MESSAGE value="Página de Login" />
     <MESSAGE value="Adição do serviço de usuário, incluindo interfaces, modelos e injeção de dependências" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adição do serviço de usuário, incluindo interfaces, modelos e injeção de dependências" />
+    <MESSAGE value="Adição do serviço de pautas, incluindo interfaces, modelos, injeção de dependências, métodos CRUD e suporte a metadados" />
+    <MESSAGE value="Migrations pauta" />
+    <MESSAGE value="Criação de um modelo base para as entidades" />
+    <MESSAGE value="Criação da página principal das pautas, página de criação e edição de pautas" />
+    <MESSAGE value="csproj e workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="csproj e workspace" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
