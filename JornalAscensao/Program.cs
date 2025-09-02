@@ -1,4 +1,5 @@
 using JornalAscensao.Data.IoC;
+using JornalAscensao.Models;
 using JornalAscensao.Services.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,12 @@ builder.Services
     .AdicionarServicos();
 
 var app = builder.Build();
+
+//using (var scope = app.Services.CreateScope())
+//{
+    // var services = scope.ServiceProvider;
+    // await SeedData.InitializeAsync(services);
+//}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
