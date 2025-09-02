@@ -9,17 +9,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d7ed489-4a83-4601-bb9e-410f45ed5fb6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Dtos/ArtigoPendenteDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/Artigo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoFormViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoHomeViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IArtigoService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Services/ArtigoService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/ArtigosController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Utils/ArtigoUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Artigo.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Editar.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Escrever.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Excluir.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Fila.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Revisar.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Data/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/IoC/ServicesInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/IoC/ServicesInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoFormViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoFormViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/ArtigoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/ArtigoService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Utils/LayoutUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Utils/LayoutUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +54,10 @@
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Controllers/CadastrarController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Data/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Data/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
@@ -81,6 +88,11 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver.localdb"
+    ]
   }
 }]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.JornalAscensao: http">
@@ -167,7 +179,7 @@
       <option name="presentableId" value="Default" />
       <updated>1756760887862</updated>
       <workItem from="1756760889441" duration="2807000" />
-      <workItem from="1756840642359" duration="9964000" />
+      <workItem from="1756840642359" duration="14039000" />
     </task>
     <task id="LOCAL-00001" summary="Estilização inicial do layout com variáveis CSS, adição de Partial Header, título atualizado e utils para formatação de data">
       <option name="closed" value="true" />
@@ -249,7 +261,39 @@
       <option name="project" value="LOCAL" />
       <updated>1756850019713</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Criação da entidade Artigo">
+      <option name="closed" value="true" />
+      <created>1756851894068</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1756851894068</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Adição do serviço de artigos, incluindo interfaces, modelos, injeção de dependências e métodos CRUD.">
+      <option name="closed" value="true" />
+      <created>1756851979526</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1756851979526</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Migrations artigo">
+      <option name="closed" value="true" />
+      <created>1756851994734</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1756851994734</updated>
+    </task>
+    <task id="LOCAL-00014" summary="atualizaçoes workspace">
+      <option name="closed" value="true" />
+      <created>1756852006989</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1756852006989</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +313,11 @@
     <MESSAGE value="Criação de um modelo base para as entidades" />
     <MESSAGE value="Criação da página principal das pautas, página de criação e edição de pautas" />
     <MESSAGE value="csproj e workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="csproj e workspace" />
+    <MESSAGE value="Criação da entidade Artigo" />
+    <MESSAGE value="Adição do serviço de artigos, incluindo interfaces, modelos, injeção de dependências e métodos CRUD." />
+    <MESSAGE value="Migrations artigo" />
+    <MESSAGE value="atualizaçoes workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="atualizaçoes workspace" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
