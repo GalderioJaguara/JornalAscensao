@@ -1,0 +1,47 @@
+@model CadastrarViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+<div class="login-wrapper">
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Cadastre-se</h2>
+            <p>Crie sua conta para colaborar com nosso fórum.</p>
+            <div class="login-header-warning-container position-relative">
+                <p class="position-absolute"><i class="bi bi-exclamation-circle"></i></p>
+                <p class="ps-4">
+                    <span class="fw-bold fw-medium">Atenção:</span> O campo "Apelido" será o nome público exibido nos seus artigos. Seu e-mail não será compartilhado ou exibido para outros usuários.
+                </p>
+            </div>
+        </div>
+
+        <form asp-action="Index" method="post" class="login-form">
+            <div class="login-input-container">
+                <label asp-for="Apelido" class="login-input-label">Apelido:</label>
+                <input type="text" asp-for="Apelido" class="form-control" placeholder="Ex: João da Silva"/>
+                <span asp-validation-for="Apelido"></span>
+            </div>
+            <div class="login-input-container">
+                <label asp-for="Email" class="login-input-label">Email:</label>
+                <input type="text" asp-for="Email" class="form-control" placeholder="Ex: email@email.com"/>
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="login-input-container">
+                <label asp-for="Senha" class="login-input-label">Senha:</label>
+                <input type="password" asp-for="Senha" class="form-control" placeholder="********"/>
+                <span asp-validation-for="Senha"></span>
+            </div>
+            <div class="login-input-container">
+                <label asp-for="ConfirmarSenha" class="login-input-label">Confirmar Senha:</label>
+                <input type="password" asp-for="ConfirmarSenha" class="form-control" placeholder="********"/>
+                <span asp-validation-for="ConfirmarSenha"></span>
+            </div>
+            
+            <button type="submit" class="btn button-primary w-100">Cadastrar</button>
+        </form>
+    </div>
+</div>
