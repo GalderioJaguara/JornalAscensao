@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JornalAscensao.Services;
 
-public class ArtigoService(AppDbContext context, UsuarioService usuarioService, UserManager<Usuario> userManager): IArtigoService
+public class ArtigoService(AppDbContext context, IUsuarioService usuarioService, UserManager<Usuario> userManager): IArtigoService
 {
     public async Task<IEnumerable<ArtigoHomeViewModel>> GetArtigosAsync()
     {
@@ -31,17 +31,55 @@ public class ArtigoService(AppDbContext context, UsuarioService usuarioService, 
 
     public async Task<IEnumerable<ArtigoViewModel>> GetArtigosColaboradorAsync(string id)
     {
-        throw new NotImplementedException();
+        var usuarioId = usuarioService.GetUsuarioId();
+        var artigosQuery = from artigo in context.Artigos
+            join autor in context.Users on artigo.AutorId equals autor.Id
+            join pauta in context.Pautas on artigo.PautaId equals pauta.Id
+            join revisor in context.Users on artigo.RevisorId equals revisor.Id into revisoresGroup
+            from revisor in revisoresGroup.DefaultIfEmpty()
+            where artigo.Aprovado == true && usuarioId == artigo.AutorId
+            select new ArtigoViewModel
+            {
+                Id = artigo.Id,
+                Titulo = artigo.Titulo,
+                Imagem = artigo.Imagem,
+                Publicado = artigo.Publicado ?? artigo.Criado,
+                Categoria = pauta.Categoria,
+                RevisorId = revisor.Id,
+                RevisorApelido = revisor.UserName,
+                AutorId = autor.Id,
+                Referencias = artigo.Referencias,
+                AutorApelido = autor.UserName,
+            };
+        
+        return await artigosQuery.ToListAsync(); 
     }
 
     public async Task<IEnumerable<ArtigoViewModel>> GetArtigosParaRevisarAsync()
     {
-        throw new NotImplementedException();
+        var artigos = context.Artigos.AsNoTracking().Include(p => p.Pauta).Where(a => a.Aprovado == false)
+            .Select(x => new ArtigoViewModel
+            {
+                Id = x.Id,
+                Titulo = x.Titulo,
+                Imagem =  x.Imagem,
+                Categoria = x.Pauta.Categoria,
+                Status = x.Status,
+                Aprovado = x.Aprovado
+            });
+        return await artigos.ToListAsync();
     }
 
     public async Task<IEnumerable<ArtigoPendenteDto>> GetArtigosPendentesAsync(string id)
     {
-        throw new NotImplementedException();
+        var artigosPendentes =  context.Artigos.AsNoTracking().Where(a => a.Aprovado == false && a.AutorId == id)
+            .Select(a => new ArtigoPendenteDto
+            {
+                Id = a.Id,
+                LinkImagem = a.Imagem,
+                Titulo = a.Titulo,
+            });
+        return await artigosPendentes.ToListAsync();
     }
 
     public async Task<ArtigoViewModel?> GetArtigoAsync(Guid id)
@@ -63,7 +101,7 @@ public class ArtigoService(AppDbContext context, UsuarioService usuarioService, 
             Texto = artigo.Texto,
             Gancho = artigo.Gancho,
             Imagem = artigo.Imagem,
-            Criado = artigo.Criado,
+            Publicado = artigo.Publicado ?? artigo.Criado,
             Atualizado = artigo.Atualizado,
             Referencias = artigo.Referencias,
             Status = artigo.Status,
@@ -134,6 +172,13 @@ public class ArtigoService(AppDbContext context, UsuarioService usuarioService, 
 
     public async Task<bool> AprovarArtigoAsync(Guid id, ArtigoFormViewModel request)
     {
-        throw new NotImplementedException();
+        var artigo  = await context.Artigos.FindAsync(id);
+        if (artigo == null)
+            return false;
+        artigo.UpdateArtigo(request);
+        artigo.Aprovado = request.Aprovado;
+        artigo.Status = StatusArtigo.Publicado;
+        await context.SaveChangesAsync();
+        return true;
     }
 }
