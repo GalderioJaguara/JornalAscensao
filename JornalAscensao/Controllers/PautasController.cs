@@ -1,6 +1,7 @@
 using JornalAscensao.Models;
 using JornalAscensao.Services.Abstraction;
 using JornalAscensao.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JornalAscensao.Controllers;
@@ -89,4 +90,23 @@ public class PautasController(IPautaService pautaService) : Controller
             return NotFound();
         return  Ok(pauta);
     } 
+    
+    [Authorize(Roles = "Admin,Moderador")]
+    public async Task<ActionResult> Excluir(Guid id)
+    {
+        var pauta = await pautaService.GetPautaAsync(id);
+        return View(pauta);
+    }
+        
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [ActionName("Excluir")]
+    [Authorize(Roles = "Admin,Moderador")]
+    public async Task<ActionResult> ConfirmarExcluirPauta(Guid id)
+    {
+        var isExcluido = await pautaService.ExcluirPautaAsync(id);
+        if (isExcluido)
+            return RedirectToAction("Index");
+        return View("Index");
+    }
 }

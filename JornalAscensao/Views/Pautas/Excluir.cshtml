@@ -1,0 +1,84 @@
+@using JornalAscensao.Utils
+@model PautaViewModel
+
+@{
+    ViewBag.Title = $"Excluir pauta - {Model.Titulo}";
+    Layout = "_Layout";
+}
+<div class="content-container">
+    <h3>Excluir Pauta/Analise</h3>
+    <div class="pautas-form-container">
+        <div class="pautas-form-selects-container">
+            <div class="pautas-form-content">
+                <label asp-for="Tipo">Tipo</label>
+                <select value="@Model.Tipo" disabled="disabled" class="form-control" asp-for="Tipo" asp-items="PautaUtils.GetTipoSelectList()">
+                    <option value="" disabled="disabled" selected="selected" >Selecione um Tipo</option>
+                </select>
+                <span asp-validation-for="Tipo"></span>
+            </div> 
+            <div class="pautas-form-content">
+                <label asp-for="Categoria">Categoria</label>
+                <select value="@Model.Categoria" disabled="disabled" class="form-control" asp-for="Categoria" asp-items="PautaUtils.GetCategoriasSelectList()">
+                    <option value="" disabled="disabled" selected="selected">Selecione uma Categoria</option>
+                </select>
+                <span asp-validation-for="Categoria"></span>
+            </div>
+        </div>
+        <div class="pautas-form-content">
+            <label asp-for="Titulo">Titulo</label>
+            <input class="form-control" disabled="disabled" value="@Model.Titulo" type="text" asp-for="Titulo" />
+            <span asp-validation-for="Titulo"></span>
+        </div>
+        <div class="pautas-form-content">
+            <label asp-for="Descricao">Descrição</label>
+            <textarea class="form-control" disabled="disabled" value="@Model.Descricao" asp-for="Descricao"></textarea>
+            <span asp-validation-for="Descricao"></span>
+        </div>
+        <div class="pautas-form-content">
+            <label asp-for="Imagem">Link da Imagem</label>
+            <input class="form-control" disabled="disabled" value="@Model.Imagem" type="text" asp-for="Imagem" />
+        </div>
+        <div class="pautas-form-content">
+            <label class="link-label"asp-for="LinkConteudo">Link do Conteúdo da Pauta</label>
+            <input disabled="disabled" class="link-input form-control" value="@Model.LinkConteudo" asp-for="LinkConteudo" disabled="disabled" type="text"/>
+        </div>
+        
+        <div class="pautas-form-buttons-container">
+            <button type="button" id="ExcluirPautaModal" class="button-primary btn" data-toggle="modal" data-target>Excluir Pauta</button>
+            <a class="button-outline button-light btn" role="button" asp-controller="Pautas" asp-action="Index">Cancelar</a>
+        </div>
+            
+        <div class="position-relative">
+            <div class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Excluir Pauta</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Você tem certeza que deseja excluir esta pauta? <span class="text-danger fw-medium">Esta ação não poderá ser desfeita</span>.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="BotaoCancelar" class="button-outline button-light btn" data-bs-dismiss="modal">Cancelar</button>
+                            <form asp-action="Excluir" method="post">
+                                <button type="submit" id="teste" class="btn button-primary">Excluir</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#ExcluirPautaModal').on('click', function() {
+       $('.modal').show(); 
+    });
+    $('#BotaoCancelar').on('click', function() {
+        $('.modal').hide();
+    });
+    
+</script>
+
