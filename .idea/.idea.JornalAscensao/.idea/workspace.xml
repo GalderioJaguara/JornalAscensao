@@ -9,21 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d7ed489-4a83-4601-bb9e-410f45ed5fb6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/ArtigosController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Utils/ArtigoUtils.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Artigo.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Editar.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Escrever.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Excluir.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Fila.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Revisar.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Excluir.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoFormViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoFormViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/ArtigoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/ArtigoService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Utils/LayoutUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Utils/LayoutUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,14 +39,21 @@
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/294078ecfce6fdb942ecfee089f09717de7a6fcfe5efd9fdb6f4f93c0fb4813/ActionMethodExecutor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Controllers/CadastrarController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Data/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Data/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Models/ArtigoFormViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Models/ArtigoViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/ArtigoService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Utils/LayoutUtils.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Views/Pautas/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -179,7 +173,7 @@
       <option name="presentableId" value="Default" />
       <updated>1756760887862</updated>
       <workItem from="1756760889441" duration="2807000" />
-      <workItem from="1756840642359" duration="14039000" />
+      <workItem from="1756840642359" duration="16211000" />
     </task>
     <task id="LOCAL-00001" summary="Estilização inicial do layout com variáveis CSS, adição de Partial Header, título atualizado e utils para formatação de data">
       <option name="closed" value="true" />
@@ -293,7 +287,39 @@
       <option name="project" value="LOCAL" />
       <updated>1756852006989</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Implementação do módulo de artigos, incluindo controlador, views para criação, edição, exclusão e revisão, além de ajustes no modelo e adição de utilitários.">
+      <option name="closed" value="true" />
+      <created>1756855973897</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1756855973897</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Atualização no serviço de artigos, implementando métodos para consulta, aprovação e recuperação de artigos pendentes, adicionando suporte a novos dados e ajustando lógica existente.">
+      <option name="closed" value="true" />
+      <created>1756855981471</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1756855981471</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Dados do Rider">
+      <option name="closed" value="true" />
+      <created>1756856001629</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1756856001629</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Implementação do módulo de colaborador, incluindo controlador, views, modelo, serviço e injeção de dependência.">
+      <option name="closed" value="true" />
+      <created>1756859437706</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1756859437706</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,7 +343,11 @@
     <MESSAGE value="Adição do serviço de artigos, incluindo interfaces, modelos, injeção de dependências e métodos CRUD." />
     <MESSAGE value="Migrations artigo" />
     <MESSAGE value="atualizaçoes workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="atualizaçoes workspace" />
+    <MESSAGE value="Implementação do módulo de artigos, incluindo controlador, views para criação, edição, exclusão e revisão, além de ajustes no modelo e adição de utilitários." />
+    <MESSAGE value="Atualização no serviço de artigos, implementando métodos para consulta, aprovação e recuperação de artigos pendentes, adicionando suporte a novos dados e ajustando lógica existente." />
+    <MESSAGE value="Dados do Rider" />
+    <MESSAGE value="Implementação do módulo de colaborador, incluindo controlador, views, modelo, serviço e injeção de dependência." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementação do módulo de colaborador, incluindo controlador, views, modelo, serviço e injeção de dependência." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -334,6 +364,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/JornalAscensao/Controllers/ColaboradorController.cs</url>
+          <line>11</line>
+          <properties documentPath="C:\Users\nerds\RiderProjects\JornalAscensao\JornalAscensao\Controllers\ColaboradorController.cs" containingFunctionPresentation="Method 'Index'">
+            <startOffsets>
+              <option value="334" />
+            </startOffsets>
+            <endOffsets>
+              <option value="396" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
