@@ -10,6 +10,7 @@ public static class ServicesInjection
         services.AddScoped<IPautaService, PautaService>();
         services.AddScoped<IUsuarioService, UsuarioService>();
         services.AddScoped<IArtigoService, ArtigoService>();
+        services.AddScoped<IColaboradorService, ColaboradorService>();
         return services;
     }
 }

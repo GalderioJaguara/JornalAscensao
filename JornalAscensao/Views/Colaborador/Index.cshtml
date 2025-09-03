@@ -1,0 +1,280 @@
+@using JornalAscensao.Utils
+@model ColaboradorViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div>
+    <div class="py-4">
+        <h2 class="title serif">Área do Colaborador</h2>
+        <p class="text-secondary fs-5">Bem vindo, @Model.Apelido.</p>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-lg-4 mb-2">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="fw-bold">Pautas Este Mês</span>
+                            <span><i class="bi bi-calendar fs-5"></i></span>
+                        </div>
+                        <div>
+                            <span class="fs-2 fw-medium">@Model.PautasMes</span>
+                            <p class="text-muted small mb-0">Pautas sugeridas
+                                em @LayoutUtils.GetMesAno(DateTime.Now)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-2">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="fw-bold">Artigos Publicados</span>
+                            <span><i class="bi bi-file-earmark-text fs-5"></i></span>
+                        </div>
+                        <div>
+                            <span class="fs-2 fw-medium">@Model.ArtigoPublicados</span>
+                            <p class="text-muted small mb-0">Total de artigos publicados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="col-lg-4 mb-2">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="fw-bold">Limite de Pautas Semanais</span>
+                            <span><i class="bi bi-exclamation-circle fs-5"></i></span>
+                        </div>
+                        <div>
+                            <span class="fs-2 fw-medium">@Model.PautasSemana/10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="py-4">
+            <div class="card">
+                <div class="p-4">
+                    <h4>Meus artigos publicados</h4>
+                </div>
+                @if (Model.ArtigosPublicadosLista != null && Model.ArtigosPublicadosLista.Any())
+                {
+                    <div class="p-4">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Título</th>
+                                <th>Categoria</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var artigo in Model.ArtigosPublicadosLista)
+                                {
+                                    <tr>
+                                        <td><img style="width: 4rem; height: auto;" class="rounded-1" src="@artigo.Imagem" alt="@artigo.Titulo"/></td>
+                                        <td><a class="link-artigo" asp-action="Artigo" asp-controller="Artigos" asp-route-id="@artigo.Id">@artigo.Titulo</a></td>
+                                        <td><span class="btn btn-sm btn-outline-danger btn-sm rounded-5 ">@artigo.Categoria</span></td>
+                                    </tr>
+                                    
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <div class="p-4 pt-0">
+                        <div class="py-5">
+                            <p class="text-center mb-3"><i class="bi bi-file-earmark-text fs-1"></i></p>
+                            <p class="text-center fs-5 text-secondary">Você ainda não possui artigos publicados.</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="p-4">
+                    <h5>Ações Rápidas</h5>
+                </div>
+                <div class="px-4 pb-4">
+                    @if (User.IsInRole("Admin") || User.IsInRole("Moderador") || User.IsInRole("Revisor"))
+                    {
+                        <a asp-controller="Artigos" asp-action="Fila"><button class="px-3 py-2 mb-1 d-flex justify-content-lg-start gap-2 align-items-center w-100 btn fw-medium button-secondary border rounded-0">
+                            <i class="bi bi-file-earmark-text fs-5"></i> <span>Área de Revisão</span>
+                        </button></a>
+                    }
+                    <button data-bs-toggle="modal" data-bs-target="#user-info-modal" id="botao-edit-user-info" class="px-3 py-2 mb-1 d-flex justify-content-lg-start fw-medium gap-2 align-items-center w-100 btn button-secondary rounded-0 border">
+                        <i class="bi bi-person"></i> <span>Editar Informações de Usuário</span>
+                    </button>
+                    <div><button data-bs-toggle="modal" data-bs-target="#artigos-modal" class="px-3 py-2 mb-2 d-flex justify-content-lg-start gap-2 fw-medium align-items-center w-100 btn button-secondary rounded-0 border">
+                        <i class="bi bi-card-list"></i> <span>Listar Artigos Pendentes</span>
+                    </button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Modal das informacoes do usuario *@
+
+<div class="modal fade" id="user-info-modal" tabindex="-1" aria-labelledby="modal das informações do usuário" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <div>
+                    <h5 class="modal-title fs-5 text-primary" id="exampleModalLabel">Editar Informações do Usuário</h5>
+                    <p class="text-secondary">Atualize suas informações pessoais. Clique em salvar quando terminar.</p>
+                </div>
+                <button type="button" class="btn-close small text-primary" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="user-info" method="post">
+                    <div class="d-flex flex-column align-items-center">
+                        <div>
+                            <span class="image-user-card">
+                                <span class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%);" id="apelido-letra"></span>
+                            </span>
+                        </div> 
+                        <div class="mt-4 d-flex flex-column align-items-center">
+                            <label for="image-input" id="btn-input-image" class="d-inline-flex btn py-2 px-3 button-outline button-outline-primary align-items-center gap-2 border ">
+                                <i class="bi bi-cloud-arrow-up fw-medium"></i>
+                                <span class="fw-medium">Alterar Avatar</span>
+                            </label>
+                            <input name="Avatar" onchange="onFileUpload(this)" type="file" accept="image/*" id="image-input" class="hidden"/>
+                            <p class="text-secondary mt-1">JPG, PNG ou WEBP (máx. 5mb)</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 mb-2">
+                        <div class="d-flex flex-column gap-2 mb-3">
+                            <label for="Apelido" class="text-primary fw-medium">Apelido</label>
+                            <input name="Apelido" id="Apelido" class="form-control rounded-0" type="text" required/>
+                        </div>
+                        <div class="d-flex flex-column gap-2">
+                            <label for="Email" class="text-primary fw-medium">Email</label>
+                            <input name="Email" id="Email" class="form-control rounded-0" type="email" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn button-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                        <button type="submit" class="btn button-primary">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+ @* Modal de Artigos Pendentes *@
+
+ <div class="modal fade" id="artigos-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+         <div class="modal-content">
+            <div class="modal-header border-0">
+                <div>
+                    <h5 class="modal-title fs-5 text-primary" id="exampleModalLabel">Artigos Pendentes</h5>
+                    <p class="text-secondary">Lista completa dos seus artigos pendentes.</p>
+                </div>
+                <button type="button" class="btn-close small text-primary" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (Model.ArtigosPendentesLista != null && Model.ArtigosPendentesLista.Any())
+                {
+                    <div>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Título</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var artigo in Model.ArtigosPendentesLista)
+                                {
+                                    <tr>
+                                        <td><img class="rounded-1" src="@artigo.LinkImagem" alt="@artigo.Titulo"  style="width: 4rem; height: auto;"/></td>
+                                        <td><a class="link-artigo" asp-action="Editar" asp-route-id="@artigo.Id" asp-controller="Artigos">@artigo.Titulo</a></td>
+                                    </tr>
+                                }
+                                
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                }
+                else
+                {
+                    <div class="p-4 pt-0">
+                        <div class="py-5">
+                            <p class="text-center mb-3"><i class="bi bi-file-earmark-text fs-1"></i></p>
+                            <p class="text-center fs-5 text-secondary">Você ainda não possui artigos pendentes.</p>
+                        </div>
+                    </div>
+                }
+               
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn button-secondary" data-bs-dismiss="modal" aria-label="Close">Fechar</button>
+            </div>
+         </div>
+     </div>
+ </div>
+
+<script>
+    $(document).ready(function () {
+        $('#botao-edit-user-info').click(function () {
+            $.ajax({
+                url: "/Colaborador/GetColaborador/"
+            }).done(function (data) {
+                console.log(data.Nome, data.email);
+                $("#apelido-letra").text(data.apelido.substring(0, 1));
+                $('#Apelido').val(data.apelido);
+                $('#Email').val(data.email);
+            });
+        });
+        $('#btn-input-image').on("click", function () {
+            $('#image-input').click();
+        });
+        $("#user-info").on("submit", function (event) {
+            event.preventDefault();
+            
+            const form = $(this);
+            
+            console.log(form);
+            $.ajax({
+                url: "/Colaborador/UpdateColaborador/",
+                method: "POST",
+                data: form.serialize(),
+                dataType: "json",
+                processData: false,
+            }).done(function (data) {
+                const modal = $("#user-info-modal");
+                const instance = bootstrap.Modal.getInstance(modal);
+                instance.hide();
+            }).fail(function (jq, status, err) {
+                
+            });
+        });
+        
+    });
+
+    function onFileUpload(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (event) {
+
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
