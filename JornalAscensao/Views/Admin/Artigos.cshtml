@@ -1,0 +1,54 @@
+@model IEnumerable<ArtigoHomeViewModel>
+@using JornalAscensao.Utils;
+@{
+    ViewBag.Title = "title";
+    Layout = "_AdminLayout";
+}
+
+<div class="admin-container">
+    <header class="h-25">
+        <div class="p-3 d-flex align-items-center gap-2 border-bottom">
+            <button onclick="toggleSideNav()" class="btn btn-secondary border-0"><span><i class="bi bi-grid-1x2"></i></span></button>
+            <h1 class="fs-5 m-0">Gerenciar Artigos</h1>
+        </div>
+    </header>
+    
+    <div class="p-4">
+        <div class="card">
+            <div class="px-4 pt-4">
+                <h3>Todos as Artigos</h3>
+                <p>Gerencie todas os artigos do sistema</p>
+            </div>
+            <div class="px-4 table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Autor</th>
+                        <th>Categoria</th>
+                        <th>Data</th>
+                        <th>Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var artigo in Model)
+                    {
+                        <tr>
+                            <td><span class="fw-semibold">@artigo.Titulo</span></td>
+                            <td><span>@artigo.AutorApelido</span></td>
+                            <td><span class="table-rounded-item">@artigo.Categoria</span></td>
+                            <td><span>@LayoutUtils.GetData(artigo.Publicado ?? DateTime.Now)</span></td>
+                            <td class="d-flex align-items-center gap-2">
+                                <a role="button" asp-controller="Artigos" asp-action="Editar" asp-route-id="@artigo.Slug" class="btn btn-secondary border-0"><i class="bi bi-pencil-square"></i></a>
+                                <a role="button" asp-controller="Artigos" asp-action="Excluir" asp-route-id="@artigo.Slug" class="btn btn-danger border-0"> <i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
