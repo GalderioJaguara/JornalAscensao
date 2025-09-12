@@ -1,13 +1,14 @@
 using JornalAscensao.Data;
 using JornalAscensao.Dtos;
 using JornalAscensao.Models;
+using JornalAscensao.Utils;
 using JornalAscensao.Services.Abstraction;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace JornalAscensao.Services;
 
-public class ArtigoService(AppDbContext context, IUsuarioService usuarioService, UserManager<Usuario> userManager): IArtigoService
+public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,IPautaService pautaService, UserManager<Usuario> userManager): IArtigoService
 {
     public async Task<IEnumerable<ArtigoHomeViewModel>> GetArtigosAsync()
     {
@@ -17,7 +18,7 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
             where artigo.Aprovado == true
             select new ArtigoHomeViewModel
             {
-                Id = artigo.Id,
+                Slug = artigo.Slug,
                 Titulo = artigo.Titulo,
                 Gancho = artigo.Gancho,
                 Imagem = artigo.Imagem,
@@ -40,11 +41,12 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
             where artigo.Aprovado == true && usuarioId == artigo.AutorId
             select new ArtigoViewModel
             {
-                Id = artigo.Id,
+                
                 Titulo = artigo.Titulo,
                 Imagem = artigo.Imagem,
                 Publicado = artigo.Publicado ?? artigo.Criado,
                 Categoria = pauta.Categoria,
+                Slug = artigo.Slug,
                 RevisorId = revisor.Id,
                 RevisorApelido = revisor.UserName,
                 AutorId = autor.Id,
@@ -60,9 +62,10 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
         var artigos = context.Artigos.AsNoTracking().Include(p => p.Pauta).Where(a => a.Aprovado == false)
             .Select(x => new ArtigoViewModel
             {
-                Id = x.Id,
+      
                 Titulo = x.Titulo,
                 Imagem =  x.Imagem,
+                Slug = x.Slug,
                 Categoria = x.Pauta.Categoria,
                 Status = x.Status,
                 Aprovado = x.Aprovado
@@ -75,16 +78,16 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
         var artigosPendentes =  context.Artigos.AsNoTracking().Where(a => a.Aprovado == false && a.AutorId == id)
             .Select(a => new ArtigoPendenteDto
             {
-                Id = a.Id,
+                Slug = a.Slug,
                 LinkImagem = a.Imagem,
                 Titulo = a.Titulo,
             });
         return await artigosPendentes.ToListAsync();
     }
 
-    public async Task<ArtigoViewModel?> GetArtigoAsync(Guid id)
+    public async Task<ArtigoViewModel?> GetArtigoAsync(string slug)
     {
-        var artigo = await context.Artigos.FindAsync(id);
+        var artigo = await context.Artigos.FirstOrDefaultAsync(a => a.Slug == slug);
 
         if (artigo == null)
         {
@@ -96,7 +99,6 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
         
         return new ArtigoViewModel
         {
-            Id = artigo.Id,
             Titulo = artigo.Titulo,
             Texto = artigo.Texto,
             Gancho = artigo.Gancho,
@@ -114,9 +116,18 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
 
     }
 
-    public async Task<ArtigoFormViewModel> CriarArtigoAsync(ArtigoFormViewModel request)
+    public async Task<ArtigoFormViewModel?> CriarArtigoAsync(ArtigoFormViewModel request)
     {
         var usuarioId =  usuarioService.GetUsuarioId();
+
+        var artigoExiste = await context.Artigos.FirstOrDefaultAsync(a => a.Slug == UrlUtils.UrlFriendlyUtil(request.Titulo));
+        if (artigoExiste != null) return null;
+
+        var pauta = await pautaService.GetPautaAsync(request.PautaId);
+        if (pauta == null)
+            return null;
+
+        pauta.Fechado = true;
         
         var artigo = new Artigo
         {
@@ -126,6 +137,7 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
             Referencias = request.Referencias,
             Imagem = request.Imagem,
             PautaId = request.PautaId,
+            Slug = UrlUtils.UrlFriendlyUtil(request.Titulo),
             Status = StatusArtigo.Corrigindo,
             AutorId = usuarioId
         };
@@ -143,9 +155,9 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
         };
     }
 
-    public async Task<ArtigoFormViewModel?> EditarArtigoAsync(Guid id, ArtigoFormViewModel request)
+    public async Task<ArtigoFormViewModel?> EditarArtigoAsync(string slug, ArtigoFormViewModel request)
     {
-        var artigo = await context.Artigos.FindAsync(id);
+        var artigo = await context.Artigos.FirstOrDefaultAsync(a => a.Slug == slug);
         if (artigo == null)
             return null;
         artigo.UpdateArtigo(request);
@@ -160,9 +172,9 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
         };
     }
 
-    public async Task<bool> DeletarArtigoAsync(Guid id)
+    public async Task<bool> DeletarArtigoAsync(string slug)
     {
-        var artigo = await context.Artigos.FindAsync(id);
+        var artigo = await context.Artigos.FirstOrDefaultAsync(a => a.Slug == slug);
         if (artigo == null)
             return false;
         context.Artigos.Remove(artigo);
@@ -170,9 +182,9 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
         return true;
     }
 
-    public async Task<bool> AprovarArtigoAsync(Guid id, ArtigoFormViewModel request)
+    public async Task<bool> AprovarArtigoAsync(string slug, ArtigoFormViewModel request)
     {
-        var artigo  = await context.Artigos.FindAsync(id);
+        var artigo  = await context.Artigos.FirstOrDefaultAsync(a => a.Slug == slug);
         if (artigo == null)
             return false;
         artigo.UpdateArtigo(request);

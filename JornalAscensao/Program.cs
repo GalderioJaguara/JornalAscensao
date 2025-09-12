@@ -1,6 +1,7 @@
 using JornalAscensao.Data.IoC;
 using JornalAscensao.Models;
 using JornalAscensao.Services.IoC;
+using JornalAscensao.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,13 +13,19 @@ builder.Services
     .AdicionarIdentity()
     .AdicionarServicos();
 
+builder.Services.AddRouting(options =>
+{
+    options.LowercaseUrls = true;
+    options.ConstraintMap["lower"] = typeof(SlugifyParameterUitls);
+});
+
 var app = builder.Build();
 
-//using (var scope = app.Services.CreateScope())
-//{
-    // var services = scope.ServiceProvider;
-    // await SeedData.InitializeAsync(services);
-//}
+// using (var scope = app.Services.CreateScope())
+// {
+//      var services = scope.ServiceProvider;
+//      await SeedData.InitializeAsync(services);
+// }
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -37,7 +44,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}")
+        pattern: "{controller:lower=Home}/{action:lower=Index}/{id?}")
     .WithStaticAssets();
 
 

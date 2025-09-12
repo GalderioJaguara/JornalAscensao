@@ -14,7 +14,8 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
         return View(artigos);
     }
     
-    public async Task<ActionResult> Artigo(Guid id)
+   
+    public async Task<ActionResult> Artigo(string id)
     {
         var artigo = await artigoService.GetArtigoAsync(id);
         if (artigo != null)
@@ -44,7 +45,7 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
         return View(request);
     }
     
-    public async Task<ActionResult> Editar(Guid id)
+    public async Task<ActionResult> Editar(string id)
     {
         var usuario = await usuarioService.GetUsuarioAsync();
         var artigo = await artigoService.GetArtigoAsync(id);
@@ -70,7 +71,7 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<ActionResult> Editar(Guid id, ArtigoFormViewModel request)
+    public async Task<ActionResult> Editar(string id, ArtigoFormViewModel request)
     {
         
         if (ModelState.IsValid == false)
@@ -88,7 +89,7 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     }
     
     [Authorize(Roles = "Admin,Moderador")]
-    public async Task<ActionResult> Excluir(Guid id)
+    public async Task<ActionResult> Excluir(string id)
     {
         var artigo = await artigoService.GetArtigoAsync(id);
         return View(artigo);
@@ -98,7 +99,7 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     [ValidateAntiForgeryToken]
     [ActionName("Excluir")]
     [Authorize(Roles = "Admin,Moderador")]
-    public async Task<ActionResult> ConfirmarExclusaoDoArtigo(Guid id)
+    public async Task<ActionResult> ConfirmarExclusaoDoArtigo(string id)
     {
         var isExcluido = await artigoService.DeletarArtigoAsync(id);
         if (isExcluido == false)
@@ -116,10 +117,9 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     }
     
     [Authorize(Roles = "Admin,Moderador,Revisor")]
-    public async Task<ActionResult> Revisar(Guid id)
+    public async Task<ActionResult> Revisar(string id)
     {
         var artigo = await artigoService.GetArtigoAsync(id);
-        Console.Write(artigo.Id);
         if (artigo == null)
         {
             TempData["error"] = "Artigo não encontrado";
@@ -131,9 +131,8 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     [HttpPost]
     [ValidateAntiForgeryToken]
     [Authorize (Roles = "Admin,Moderador,Revisor")]
-    public async Task<ActionResult> AprovarArtigo(Guid id, ArtigoFormViewModel request)
+    public async Task<ActionResult> AprovarArtigo(string id, ArtigoFormViewModel request)
     {
-        Console.WriteLine(id);
         var isAprovado = await artigoService.AprovarArtigoAsync(id, request);
         if (isAprovado == false)
         {

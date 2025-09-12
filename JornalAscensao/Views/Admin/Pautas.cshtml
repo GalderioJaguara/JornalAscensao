@@ -1,0 +1,106 @@
+@model IEnumerable<PautaViewModel>
+@using JornalAscensao.Utils;
+@{
+    ViewBag.Title = "title";
+    Layout = "_AdminLayout";
+}
+
+<div class="admin-container">
+    <header class="h-25">
+        <div class="p-3 d-flex align-items-center gap-2 border-bottom">
+            <button onclick="toggleSideNav()" class="btn btn-secondary border-0"><span><i class="bi bi-grid-1x2"></i></span></button>
+            <h1 class="fs-5 m-0">Gerenciar Pautas</h1>
+        </div>
+    </header>
+    
+    <div class="p-4">
+        <div class="card">
+            <div class="px-4 pt-4">
+                <h3>Todos as Pautas</h3>
+                <p>Gerencie todas as pautas do sistema</p>
+            </div>
+            <div class="px-4 table-responsive">
+                <table class="table" id="tabela-pautas">
+                    <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Sugerida por</th>
+                        <th>Categoria</th>
+                        <th>Status</th>
+                        <th>Data</th>
+                        <th>Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var pauta in Model)
+                    {
+                        <tr>
+                            <td><span class="fw-semibold">@pauta.Titulo</span></td>
+                            <td><span>@pauta.UsuarioApelido</span></td>
+                            <td><span class="table-rounded-item">@pauta.Categoria</span></td>
+                            <td><span class="table-rounded-item bg-primary">Aberto</span></td>
+                            <td><span>@LayoutUtils.GetData(@pauta.Criado)</span></td>
+                            <td class="d-flex align-items-center gap-2">
+                                <a role="button" asp-controller="Pautas" asp-action="Editar" asp-route-id="@pauta.Id" class="btn btn-secondary border-0"><i class="bi bi-pencil-square"></i></a>
+                                @if (pauta.Fechado == false)
+                                {
+                                    <button onclick="getPautaId(this)" data-ascensao-pauta-id="@pauta.Id" data-bs-toggle="modal" data-bs-target="#fechar-pauta-modal" class="btn btn-secondary border-0"><i class="bi bi-x-lg"></i></button>
+                                } 
+                                <a role="button" asp-controller="Pautas" asp-action="Excluir" asp-route-id="@pauta.Id" class="btn btn-danger border-0"> <i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="fechar-pauta-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Fechar Pauta</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Você tem certeza que deseja fechar esta pauta? Esta ação não poderá ser desfeita
+            </div>
+            <div class="modal-footer">
+                <form asp-action="FecharPauta" asp-controller="Admin" id="fechar-pauta">
+                    <input type="hidden" id="id" name="id"/>
+                    <button type="submit" class="btn btn-primary">Fechar Pauta</button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getPautaId(element){
+        document.getElementById('id').value = element.getAttribute("data-ascensao-pauta-id");
+    }
+    document.querySelector('[data-bs-dismiss="modal"]').addEventListener('click', function (event) {
+        document.getElementById('id').value = '';
+    });
+   $(document).ready(function () {
+       $("#fechar-pauta").on('submit', function (event) {
+           event.preventDefault();
+           const form = $(this);
+           $.ajax({
+               url: form.attr('action'),
+               method: 'POST',
+               data: form.serialize(),
+               dataType: 'json',
+           }).done(function (data) {
+               $('.btn-close').click();
+           })
+       })
+   })
+   
+</script>

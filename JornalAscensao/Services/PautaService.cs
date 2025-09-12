@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using System.Net;
 using JornalAscensao.Data;
 using JornalAscensao.Models;
@@ -21,10 +22,11 @@ public class PautaService(AppDbContext context, ILogger<PautaService> logger, IU
                 Imagem = pautas.Imagem,
                 Categoria = pautas.Categoria,
                 Tipo = pautas.Tipo,
+                Fechado = pautas.Fechada,
                 LinkConteudo = pautas.LinkConteudo,
                 Criado = pautas.Criado,
                 UsuarioId =  pautas.UsuarioId,
-                UsuarioApelido =  usuarios.UserName,
+                UsuarioApelido =  usuarios.Apelido,
             };
 
         var data = await query.AsNoTracking().ToListAsync();
@@ -104,6 +106,19 @@ public class PautaService(AppDbContext context, ILogger<PautaService> logger, IU
         };
     }
 
+    public async Task<bool> FecharPautaAsync(Guid id)
+    {
+        var pauta = await context.Pautas.FindAsync(id);
+        if (pauta == null)
+        {
+            return false;
+        }
+
+        pauta.Fechada = true;
+        await context.SaveChangesAsync();
+        return true;
+    }
+
     public async Task<bool> ExcluirPautaAsync(Guid id)
     {
         var pauta = await context.Pautas.FindAsync(id);
@@ -152,4 +167,5 @@ public class PautaService(AppDbContext context, ILogger<PautaService> logger, IU
             Imagem = img
         };
     }
+    
 }

@@ -24,7 +24,7 @@
                                 <p class="small text-secondary"><span class="pointer"></span>Por @artigo.AutorApelido</p>
                             </div>
                             <h3 class="fw-bold serif mb-2 text-break">
-                                <a class="link-artigo fs-5" asp-controller="Artigos" asp-action="Artigo" asp-route-id="@artigo.Id">@artigo.Titulo</a>
+                                <a class="link-artigo fs-5" asp-controller="Artigos" asp-action="Artigo" asp-route-id="@artigo.Slug">@artigo.Titulo</a>
                             </h3>
                             <p class="text-break" asp-controller="Artigos">@artigo.Gancho</p>
                         </div>

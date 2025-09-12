@@ -19,6 +19,8 @@ public class PautaViewModel
     [Required, MinLength(30)]
     public string Descricao  { get; set; } = String.Empty;
     
+    public bool Fechado  { get; set; }
+    
     public string? Imagem  { get; set; } 
     
     [Required, DataType(DataType.Url)]

@@ -53,7 +53,7 @@
                             <span><i class="bi bi-exclamation-circle fs-5"></i></span>
                         </div>
                         <div>
-                            <span class="fs-2 fw-medium">@Model.PautasSemana/10</span>
+                            <span class="fs-2 fw-medium small">@Model.PautasSemana/10</span>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                                 {
                                     <tr>
                                         <td><img style="width: 4rem; height: auto;" class="rounded-1" src="@artigo.Imagem" alt="@artigo.Titulo"/></td>
-                                        <td><a class="link-artigo" asp-action="Artigo" asp-controller="Artigos" asp-route-id="@artigo.Id">@artigo.Titulo</a></td>
+                                        <td><a class="link-artigo" asp-action="Artigo" asp-controller="Artigos" asp-route-id="@artigo.Slug">@artigo.Titulo</a></td>
                                         <td><span class="btn btn-sm btn-outline-danger btn-sm rounded-5 ">@artigo.Categoria</span></td>
                                     </tr>
                                     
@@ -117,6 +117,12 @@
                     <button data-bs-toggle="modal" data-bs-target="#user-info-modal" id="botao-edit-user-info" class="px-3 py-2 mb-1 d-flex justify-content-lg-start fw-medium gap-2 align-items-center w-100 btn button-secondary rounded-0 border">
                         <i class="bi bi-person"></i> <span>Editar Informações de Usuário</span>
                     </button>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Moderador"))
+                    {
+                        <a role="button" asp-controller="Admin" asp-action="Index" class="px-3 py-2 mb-1 d-flex justify-content-lg-start fw-medium gap-2 align-items-center w-100 btn button-secondary rounded-0 border">
+                            <i class="bi bi-gear"></i> <span>Painel de Admintração</span>
+                        </a>
+                    }
                     <div><button data-bs-toggle="modal" data-bs-target="#artigos-modal" class="px-3 py-2 mb-2 d-flex justify-content-lg-start gap-2 fw-medium align-items-center w-100 btn button-secondary rounded-0 border">
                         <i class="bi bi-card-list"></i> <span>Listar Artigos Pendentes</span>
                     </button></div>
@@ -203,7 +209,7 @@
                                 {
                                     <tr>
                                         <td><img class="rounded-1" src="@artigo.LinkImagem" alt="@artigo.Titulo"  style="width: 4rem; height: auto;"/></td>
-                                        <td><a class="link-artigo" asp-action="Editar" asp-route-id="@artigo.Id" asp-controller="Artigos">@artigo.Titulo</a></td>
+                                        <td><a class="link-artigo" asp-action="Editar" asp-route-id="@artigo.Slug" asp-controller="Artigos">@artigo.Titulo</a></td>
                                     </tr>
                                 }
                                 

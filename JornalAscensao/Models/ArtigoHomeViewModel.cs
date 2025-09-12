@@ -4,7 +4,7 @@ namespace JornalAscensao.Models;
 
 public class ArtigoHomeViewModel
 {
-    public Guid? Id { get; set; }
+    public string Slug { get; set; }
     
     [Required, MinLength(10)]
     public string Titulo { get; set; }
