@@ -23,5 +23,9 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbCo
             .WithMany()
             .HasForeignKey(a => a.RevisorId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Artigo>()
+            .HasIndex(a => a.Slug)
+            .IsUnique();
     }
 }

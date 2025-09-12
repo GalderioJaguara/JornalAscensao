@@ -65,6 +65,10 @@ namespace JornalAscensao.Migrations
                     b.Property<string>("RevisorId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -84,6 +88,9 @@ namespace JornalAscensao.Migrations
                     b.HasIndex("PautaId");
 
                     b.HasIndex("RevisorId");
+
+                    b.HasIndex("Slug")
+                        .IsUnique();
 
                     b.ToTable("Artigos");
                 });
@@ -159,6 +166,9 @@ namespace JornalAscensao.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<DateTime>("Atualizado")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Avatar")
                         .HasColumnType("nvarchar(max)");
 
@@ -166,12 +176,18 @@ namespace JornalAscensao.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("Criado")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Excluido")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
