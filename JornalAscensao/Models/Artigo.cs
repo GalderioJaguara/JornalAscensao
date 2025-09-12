@@ -22,6 +22,8 @@ public class Artigo : BaseModel
 
     public bool Aprovado { get; set; }
     
+    public string Slug { get; set; }
+    
     public DateTime? Publicado { get; set; }
     
     public Guid PautaId { get; set; }
