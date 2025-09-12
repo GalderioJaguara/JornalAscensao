@@ -1,0 +1,223 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|c:\\users\\nerds\\riderprojects\\jornalascensao\\jornalascensao\\views\\artigos\\fila.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|solutionrelative:jornalascensao\\views\\artigos\\fila.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|c:\\users\\nerds\\riderprojects\\jornalascensao\\jornalascensao\\views\\colaborador\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|solutionrelative:jornalascensao\\views\\colaborador\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|c:\\users\\nerds\\riderprojects\\jornalascensao\\jornalascensao\\views\\artigos\\revisar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|solutionrelative:jornalascensao\\views\\artigos\\revisar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|c:\\users\\nerds\\riderprojects\\jornalascensao\\jornalascensao\\views\\artigos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|solutionrelative:jornalascensao\\views\\artigos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|c:\\users\\nerds\\riderprojects\\jornalascensao\\jornalascensao\\views\\admin\\artigos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|solutionrelative:jornalascensao\\views\\admin\\artigos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|c:\\users\\nerds\\riderprojects\\jornalascensao\\jornalascensao\\models\\artigoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|solutionrelative:jornalascensao\\models\\artigoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|c:\\users\\nerds\\riderprojects\\jornalascensao\\jornalascensao\\controllers\\artigoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|solutionrelative:jornalascensao\\controllers\\artigoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|c:\\users\\nerds\\riderprojects\\jornalascensao\\jornalascensao\\services\\artigoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|solutionrelative:jornalascensao\\services\\artigoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|c:\\users\\nerds\\riderprojects\\jornalascensao\\jornalascensao\\services\\abstraction\\iartigoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|solutionrelative:jornalascensao\\services\\abstraction\\iartigoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|c:\\users\\nerds\\riderprojects\\jornalascensao\\jornalascensao\\models\\artigohomeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|solutionrelative:jornalascensao\\models\\artigohomeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|c:\\users\\nerds\\riderprojects\\jornalascensao\\jornalascensao\\migrations\\20250911214928_slugunique.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|solutionrelative:jornalascensao\\migrations\\20250911214928_slugunique.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|c:\\users\\nerds\\riderprojects\\jornalascensao\\jornalascensao\\utils\\urlutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59BD21BC-89FD-4987-982B-4ACFB797F2D6}|JornalAscensao\\JornalAscensao.csproj|solutionrelative:jornalascensao\\utils\\urlutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Views\\Colaborador\\Index.cshtml",
+              "RelativeDocumentMoniker": "JornalAscensao\\Views\\Colaborador\\Index.cshtml",
+              "ToolTip": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Views\\Colaborador\\Index.cshtml",
+              "RelativeToolTip": "JornalAscensao\\Views\\Colaborador\\Index.cshtml",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAWwFIAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-11T23:22:52.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Revisar.cshtml",
+              "DocumentMoniker": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Views\\Artigos\\Revisar.cshtml",
+              "RelativeDocumentMoniker": "JornalAscensao\\Views\\Artigos\\Revisar.cshtml",
+              "ToolTip": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Views\\Artigos\\Revisar.cshtml",
+              "RelativeToolTip": "JornalAscensao\\Views\\Artigos\\Revisar.cshtml",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAWwDkAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-11T23:22:34.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Fila.cshtml",
+              "DocumentMoniker": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Views\\Artigos\\Fila.cshtml",
+              "RelativeDocumentMoniker": "JornalAscensao\\Views\\Artigos\\Fila.cshtml",
+              "ToolTip": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Views\\Artigos\\Fila.cshtml",
+              "RelativeToolTip": "JornalAscensao\\Views\\Artigos\\Fila.cshtml",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAAC8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-11T23:21:50.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Artigos.cshtml",
+              "DocumentMoniker": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Views\\Admin\\Artigos.cshtml",
+              "RelativeDocumentMoniker": "JornalAscensao\\Views\\Admin\\Artigos.cshtml",
+              "ToolTip": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Views\\Admin\\Artigos.cshtml",
+              "RelativeToolTip": "JornalAscensao\\Views\\Admin\\Artigos.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAACoAAAB5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-11T23:21:37.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Views\\Artigos\\Index.cshtml",
+              "RelativeDocumentMoniker": "JornalAscensao\\Views\\Artigos\\Index.cshtml",
+              "ToolTip": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Views\\Artigos\\Index.cshtml",
+              "RelativeToolTip": "JornalAscensao\\Views\\Artigos\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAmwBoAAACDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-11T23:15:00.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IArtigoService.cs",
+              "DocumentMoniker": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Services\\Abstraction\\IArtigoService.cs",
+              "RelativeDocumentMoniker": "JornalAscensao\\Services\\Abstraction\\IArtigoService.cs",
+              "ToolTip": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Services\\Abstraction\\IArtigoService.cs",
+              "RelativeToolTip": "JornalAscensao\\Services\\Abstraction\\IArtigoService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwA0AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T23:13:26.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ArtigosController.cs",
+              "DocumentMoniker": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Controllers\\ArtigosController.cs",
+              "RelativeDocumentMoniker": "JornalAscensao\\Controllers\\ArtigosController.cs",
+              "ToolTip": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Controllers\\ArtigosController.cs",
+              "RelativeToolTip": "JornalAscensao\\Controllers\\ArtigosController.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAYwIYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T23:13:03.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ArtigoViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Models\\ArtigoViewModel.cs",
+              "RelativeDocumentMoniker": "JornalAscensao\\Models\\ArtigoViewModel.cs",
+              "ToolTip": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Models\\ArtigoViewModel.cs",
+              "RelativeToolTip": "JornalAscensao\\Models\\ArtigoViewModel.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAQwAcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T23:12:38.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ArtigoHomeViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Models\\ArtigoHomeViewModel.cs",
+              "RelativeDocumentMoniker": "JornalAscensao\\Models\\ArtigoHomeViewModel.cs",
+              "ToolTip": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Models\\ArtigoHomeViewModel.cs",
+              "RelativeToolTip": "JornalAscensao\\Models\\ArtigoHomeViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T23:12:37.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ArtigoService.cs",
+              "DocumentMoniker": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Services\\ArtigoService.cs",
+              "RelativeDocumentMoniker": "JornalAscensao\\Services\\ArtigoService.cs",
+              "ToolTip": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Services\\ArtigoService.cs",
+              "RelativeToolTip": "JornalAscensao\\Services\\ArtigoService.cs",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAqwLQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T22:31:32.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20250911214928_SlugUnique.cs",
+              "DocumentMoniker": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Migrations\\20250911214928_SlugUnique.cs",
+              "RelativeDocumentMoniker": "JornalAscensao\\Migrations\\20250911214928_SlugUnique.cs",
+              "ToolTip": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Migrations\\20250911214928_SlugUnique.cs",
+              "RelativeToolTip": "JornalAscensao\\Migrations\\20250911214928_SlugUnique.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T21:49:29.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UrlUtils.cs",
+              "DocumentMoniker": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Utils\\UrlUtils.cs",
+              "RelativeDocumentMoniker": "JornalAscensao\\Utils\\UrlUtils.cs",
+              "ToolTip": "C:\\Users\\nerds\\RiderProjects\\JornalAscensao\\JornalAscensao\\Utils\\UrlUtils.cs",
+              "RelativeToolTip": "JornalAscensao\\Utils\\UrlUtils.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T21:34:19.336Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
