@@ -3,7 +3,7 @@
   --serif: "Merriweather", serif;
   --bg-cor: #FAFAFA;
   --cor-primaria: #001f3d;
-  --cor-secundaria: #4040400d;
+  --cor-secundaria: rgb(235, 237, 239);
   --cor-terciaria: #e06106;
   --cor-highlight: #00264d;
   --cor-button-outline: hsl(210 11% 94%);
@@ -211,7 +211,7 @@ textarea {
 }
 
 .button-primary {
-  background-color: var(--cor-primaria);
+  background-color: var(--cor-primaria) !important;
   color: var(--cor-text-dark);
 }
 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Ascensao</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+<nav class="border-end h-100 sidenav">
+    <div class="p-4 border-bottom">
+        <h1 class="fs-5">Painel de Admin</h1>
+        <div>
+            <p><a asp-action="Index" asp-controller="Home" class="fw-medium fs-6">Voltar</a></p>
+        </div>
+    </div>
+   
+    <div class="p-2">
+        <ul class="m-0 p-0">
+            <li class="p-2 dashboard-link @(Context.Request.Path == "/Admin" ? "link-active" : "")">
+                <i class="bi bi-columns-gap me-1"></i>
+                <a asp-controller="Admin" asp-action="Index" class="w-100 d-inline-block">Painel</a>
+            </li>
+            <li class="p-2 dashboard-link @(Context.Request.Path == "/Admin/Pautas" ? "link-active" : "")">
+                <i class="bi bi-newspaper me-1"></i>
+                <a asp-controller="Admin" asp-action="Pautas" class="w-100 d-inline-block">Gerenciar Pautas</a>
+            </li>
+            <li class="p-2 dashboard-link @(Context.Request.Path == "/Admin/Artigos" ? "link-active" : "")">
+                <i class="bi bi-file-earmark-text me-1"></i>
+                <a asp-controller="Admin" asp-action="Artigos" class="w-100 d-inline-block">Gerenciar Artigos</a>
+            </li>
+            @if (!User.IsInRole("Moderador"))
+            {
+                <li class="p-2 dashboard-link @(Context.Request.Path == "/Admin/Colaboradores" ? "link-active" : "")">
+                    <i class="bi bi-people me-1"></i>
+                    <a class="w-100 d-inline-block" asp-controller="Admin" asp-action="Colaboradores">Gerenciar Colaboradores</a>
+                </li>
+            }
+        </ul>
+    </div>
+</nav>
+<section>
+    @RenderBody()
+</section>
+<script src="~/js/admin.js"></script>
+</body>
+</html>

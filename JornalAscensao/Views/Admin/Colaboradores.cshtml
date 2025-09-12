@@ -1,0 +1,107 @@
+@using JornalAscensao.Utils
+@model IEnumerable<AdminColaboradoresViewModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_AdminLayout";
+}
+
+<div class="admin-container">
+    <header class="h-25">
+        <div class="p-3 d-flex align-items-center gap-2 border-bottom">
+            <button onclick="toggleSideNav()" class="btn btn-secondary border-0"><span><i class="bi bi-grid-1x2"></i></span></button>
+            <h1 class="fs-5 m-0">Gerenciar Colaboradores</h1>
+        </div>
+    </header>
+    
+    <div class="p-4">
+        <div class="card">
+            <div class="px-4 pt-4">
+                <h3>Todos os colaboradores</h3>
+                <p>Gerencie as contas dos colaboradores</p>
+            </div>
+            <div class="px-4 table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Apelido</th>
+                        <th>Email</th>
+                        <th>Roles</th>
+                        <th>Criado em</th>
+                        <th>Excluido</th>
+                        <th>Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var usuario in Model)
+                    {
+                        <tr>
+                            <td><span class="fw-semibold">@usuario.Apelido</span></td>
+                            <td><span>@usuario.Email</span></td>
+                            <td><span>@usuario.Roles</span></td>
+                            <td><span>@LayoutUtils.GetData(usuario.Criado)</span></td>
+                            <td><span class="table-rounded-item bg-primary">@(usuario.Excluido != null ? "Sim" : "Não")</span></td>
+                            <td class="d-flex align-items-center gap-2">
+                                @if (usuario.Excluido == null)
+                                {
+                                    <button data-ascencao-user-email="@usuario.Email" onclick="getUserEmail(this)" data-bs-toggle="modal" data-bs-target="#delete-user-modal" class="btn btn-danger border-0"> <i class="bi bi-trash"></i></button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="delete-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Excluir usuário</h1>
+            </div>
+            <div class="modal-body">
+                Ao excluir o usuário não será possivel reverter as alterações, <span class="text-danger fw-bold">Tem certeza disso?</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn border-0 btn-secondary" aria-label="Close" data-bs-dismiss="modal">Não</button>
+                <form id="delete-usuario" asp-action="ExcluirColaborador" asp-controller="Admin" method="post">
+                    <input type="hidden" id="email" name="email" value="" />
+                    <button type="submit" class="btn border-0 btn-primary">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+   function getUserEmail(element) {
+       document.getElementById('email').value = element.getAttribute('data-ascencao-user-email');
+       document.querySelector('[data-bs-dismiss="modal"]').addEventListener('click', function (event) {
+           document.getElementById('email').value = ""
+       })
+   }
+   
+   $(document).ready(function () {
+       $("#delete-usuario").on('submit', function (event) {
+           event.preventDefault();
+           const form = $(this);
+           $.ajax({
+               url: form.attr('action'),
+               type: 'POST',
+               dataType: 'json',
+               data: form.serialize(),
+               processData: false,
+           }).done(function (response) {
+               $('[data-bs-dismiss="modal"]').click();
+           })
+       })
+   })
+</script>
+ 
