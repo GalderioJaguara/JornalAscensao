@@ -9,8 +9,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d7ed489-4a83-4601-bb9e-410f45ed5fb6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Excluir.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Utils/SlugifyParameterUitls.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Admin/Artigos.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Admin/Pautas.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/dataSources/9022d8ad-eaae-42a8-8c0d-ac57c659669e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/dataSources/9022d8ad-eaae-42a8-8c0d-ac57c659669e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Controllers/ArtigosController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/ArtigosController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Data/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Dtos/ArtigoPendenteDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Dtos/ArtigoPendenteDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Models/Artigo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Models/Artigo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoHomeViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoHomeViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Models/ArtigoViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Models/PautaViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Models/PautaViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Models/SeedData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Models/SeedData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IArtigoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IArtigoService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IPautaService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IPautaService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/ArtigoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/ArtigoService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/IoC/ServicesInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/IoC/ServicesInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/PautaService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/PautaService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Fila.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Fila.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Revisar.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Revisar.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Colaborador/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Colaborador/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,25 +59,25 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/76803a04e31b4fee99d90bcbfc5a6bdde8e930/a6/8e6a707c/AsyncTaskMethodBuilder`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/294078ecfce6fdb942ecfee089f09717de7a6fcfe5efd9fdb6f4f93c0fb4813/ActionMethodExecutor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Controllers/CadastrarController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Data/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2f2b1d92f1ffcf2dabd664473f8c9dafa6039595ac228ce4b75a0f1619c5991/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8be3a835a33b22749161cd57a7225ef65e0c61c64c2bfd969e2e404130dd/Controller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Data/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Models/ArtigoFormViewModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Models/ArtigoViewModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/ArtigoService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/IoC/ServicesInjection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Utils/LayoutUtils.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Views/Pautas/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Models/Artigo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Models/ArtigoHomeViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Models/Usuario.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/Abstraction/IArtigoService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/Abstraction/IPautaService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/Abstraction/IUsuarioService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/PautaService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Services/UsuarioService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Views/Artigos/Fila.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Views/Artigos/Revisar.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Views/Colaborador/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Views/Colaborador/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nerds/RiderProjects/JornalAscensao/JornalAscensao/Views/Colaborador/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -173,7 +196,12 @@
       <option name="presentableId" value="Default" />
       <updated>1756760887862</updated>
       <workItem from="1756760889441" duration="2807000" />
-      <workItem from="1756840642359" duration="16211000" />
+      <workItem from="1756840642359" duration="16528000" />
+      <workItem from="1757045872841" duration="391000" />
+      <workItem from="1757348628138" duration="12044000" />
+      <workItem from="1757377056783" duration="4214000" />
+      <workItem from="1757627823670" duration="1343000" />
+      <workItem from="1757633864351" duration="7359000" />
     </task>
     <task id="LOCAL-00001" summary="Estilização inicial do layout com variáveis CSS, adição de Partial Header, título atualizado e utils para formatação de data">
       <option name="closed" value="true" />
@@ -319,7 +347,39 @@
       <option name="project" value="LOCAL" />
       <updated>1756859437706</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Criação da página de exclusão de pauta">
+      <option name="closed" value="true" />
+      <created>1756859819375</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1756859819375</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Workspace data">
+      <option name="closed" value="true" />
+      <created>1756859829358</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1756859829358</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Implementação do módulo de administração: controlador, views para painel, pautas, artigos e colaboradores, modelos, serviços relacionados e layouts. Ajustes em estilos e funcionalidades relacionadas.">
+      <option name="closed" value="true" />
+      <created>1757635453188</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1757635453188</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Adição de migrations para suporte a timestamps em usuários e slug único para artigos.">
+      <option name="closed" value="true" />
+      <created>1757635471102</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1757635471102</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,7 +407,11 @@
     <MESSAGE value="Atualização no serviço de artigos, implementando métodos para consulta, aprovação e recuperação de artigos pendentes, adicionando suporte a novos dados e ajustando lógica existente." />
     <MESSAGE value="Dados do Rider" />
     <MESSAGE value="Implementação do módulo de colaborador, incluindo controlador, views, modelo, serviço e injeção de dependência." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementação do módulo de colaborador, incluindo controlador, views, modelo, serviço e injeção de dependência." />
+    <MESSAGE value="Criação da página de exclusão de pauta" />
+    <MESSAGE value="Workspace data" />
+    <MESSAGE value="Implementação do módulo de administração: controlador, views para painel, pautas, artigos e colaboradores, modelos, serviços relacionados e layouts. Ajustes em estilos e funcionalidades relacionadas." />
+    <MESSAGE value="Adição de migrations para suporte a timestamps em usuários e slug único para artigos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adição de migrations para suporte a timestamps em usuários e slug único para artigos." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -365,17 +429,30 @@
           <option name="timeStamp" value="3" />
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/JornalAscensao/Controllers/ColaboradorController.cs</url>
-          <line>11</line>
-          <properties documentPath="C:\Users\nerds\RiderProjects\JornalAscensao\JornalAscensao\Controllers\ColaboradorController.cs" containingFunctionPresentation="Method 'Index'">
+          <url>file://$PROJECT_DIR$/JornalAscensao/Controllers/AdminController.cs</url>
+          <line>37</line>
+          <properties documentPath="C:\Users\nerds\RiderProjects\JornalAscensao\JornalAscensao\Controllers\AdminController.cs" containingFunctionPresentation="Method 'Artigos'">
             <startOffsets>
-              <option value="334" />
+              <option value="1431" />
             </startOffsets>
             <endOffsets>
-              <option value="396" />
+              <option value="1432" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/JornalAscensao/Controllers/ArtigosController.cs</url>
+          <line>135</line>
+          <properties documentPath="C:\Users\nerds\RiderProjects\JornalAscensao\JornalAscensao\Controllers\ArtigosController.cs" containingFunctionPresentation="Method 'AprovarArtigo'">
+            <startOffsets>
+              <option value="4084" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4153" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
