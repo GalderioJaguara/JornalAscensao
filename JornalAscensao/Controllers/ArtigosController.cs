@@ -5,16 +5,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JornalAscensao.Controllers;
 
+[Route("artigos")]
 public class ArtigosController(IArtigoService artigoService, IUsuarioService usuarioService) : Controller
 {
     // GET
+    [HttpGet]
+    [Route("")]
     public async Task<IActionResult> Index()
     {
         var artigos = await artigoService.GetArtigosAsync();
         return View(artigos);
     }
     
-   
+    [HttpGet("{id}")]
     public async Task<ActionResult> Artigo(string id)
     {
         var artigo = await artigoService.GetArtigoAsync(id);
@@ -25,18 +28,23 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     }
     
     [HttpGet]
-    public ActionResult Escrever()
+    [Route("escrever")]
+    public ActionResult Escrever([FromQuery] Guid id)
     {
-        return View();
+        var artigo = new ArtigoFormViewModel()
+        {
+            PautaId = id
+        };
+        return View(artigo);
     }
 
     [HttpPost]
+    [Route("escrever")]
     [ValidateAntiForgeryToken]
-    public async Task<ActionResult> Escrever(Guid id, ArtigoFormViewModel request)
+    public async Task<ActionResult> Escrever(ArtigoFormViewModel request)
     {
         if (ModelState.IsValid)
         {
-            request.PautaId = id;
             var artigo = await artigoService.CriarArtigoAsync(request);
             Console.WriteLine(artigo);
             return RedirectToAction("Index");
@@ -45,6 +53,8 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
         return View(request);
     }
     
+    [HttpGet]
+    [Route("editar/{id}")]
     public async Task<ActionResult> Editar(string id)
     {
         var usuario = await usuarioService.GetUsuarioAsync();
@@ -70,6 +80,7 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     }
     
     [HttpPost]
+    [Route("editar/{id}")]
     [ValidateAntiForgeryToken]
     public async Task<ActionResult> Editar(string id, ArtigoFormViewModel request)
     {
@@ -89,6 +100,7 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     }
     
     [Authorize(Roles = "Admin,Moderador")]
+    [HttpGet("excluir/{id}")]
     public async Task<ActionResult> Excluir(string id)
     {
         var artigo = await artigoService.GetArtigoAsync(id);
@@ -98,6 +110,7 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     [HttpPost]
     [ValidateAntiForgeryToken]
     [ActionName("Excluir")]
+    [Route("excluir/{id}")]
     [Authorize(Roles = "Admin,Moderador")]
     public async Task<ActionResult> ConfirmarExclusaoDoArtigo(string id)
     {
@@ -110,6 +123,7 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     }
     
     [Authorize(Roles = "Admin,Moderador,Revisor")]
+    [HttpGet("fila-de-revisao")]
     public async Task<ActionResult> Fila()
     {
         var artigos = await artigoService.GetArtigosParaRevisarAsync();
@@ -117,6 +131,7 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     }
     
     [Authorize(Roles = "Admin,Moderador,Revisor")]
+    [HttpGet("revisar/{id}")]
     public async Task<ActionResult> Revisar(string id)
     {
         var artigo = await artigoService.GetArtigoAsync(id);

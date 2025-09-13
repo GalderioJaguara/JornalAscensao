@@ -8,7 +8,7 @@
 <div class="container-sm py-4">
     <h2>Escrever Artigo</h2>
     <div class="row">
-        <form asp-controller="Artigos" asp-action="Escrever" method="post">
+        <form asp-controller="Artigos" asp-action="Escrever"  method="post">
             <div class="d-flex flex-column py-4 col-12">
                 <div class="d-flex flex-column mb-4">
                     @* titulo *@
@@ -48,6 +48,7 @@
                     <label asp-for="Imagem" class="form-label">Link da Imagem</label>
                     <input type="text" asp-for="Imagem" class="form-control"/>
                     <span asp-validation-for="Imagem" class="form-textz"></span>
+                    <input type="hidden" asp-for="PautaId" value="@Model.PautaId"/>
                 </div>
                 <div>
                     <button type="submit" class="btn button-primary">Enviar Artigo</button>
