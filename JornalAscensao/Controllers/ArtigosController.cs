@@ -16,6 +16,14 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
         var artigos = await artigoService.GetArtigosAsync();
         return View(artigos);
     }
+
+    [HttpGet()]
+    [Route("categoria/{categoria}")]
+    public async Task<IActionResult> Categoria(string categoria)
+    {
+        var artigos = await artigoService.GetArtigosPorCategoriaAsync(categoria);
+        return View(artigos);
+    }
     
     [HttpGet("{id}")]
     public async Task<ActionResult> Artigo(string id)

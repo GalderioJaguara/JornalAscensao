@@ -39,7 +39,17 @@
             <div class="d-flex justify-content-center align-items-center">
                 <ul class="nav-list gap-4 mb-0">
                     <li class="nav-item"><a asp-controller="Home" asp-action="Index">Inicio</a></li>
-                    <li class="nav-item"><a asp-controller="Artigos" asp-action="Index">Artigos</a></li>
+                    <li class="nav-item suspenso">
+                        <a asp-controller="Artigos" asp-action="Index">Artigos</a>
+                        <ul class="menu-suspenso">
+                            <li><a asp-controller="Artigos" asp-action="Index">Todos os Artigos</a></li>
+                            <li><a asp-controller="Artigos" asp-action="Categoria" asp-route-categoria="politica">Política</a></li>
+                            <li><a asp-controller="Artigos" asp-action="Categoria" asp-route-categoria="economia">Economia</a></li>
+                            <li><a asp-controller="Artigos" asp-action="Categoria" asp-route-categoria="esportes">Esportes</a></li>
+                            <li><a asp-controller="Artigos" asp-action="Categoria" asp-route-categoria="tecnologia">Tecnologia</a></li>
+                            <li><a asp-controller="Artigos" asp-action="Categoria" asp-route-categoria="cultura">Cultura</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a>Análises</a></li>
                     <li class="nav-item"><a asp-controller="Pautas" asp-action="Index">Pautas e Assuntos</a></li>
                     <li class="nav-item"><a>Contato</a></li>

@@ -6,6 +6,7 @@ namespace JornalAscensao.Services.Abstraction;
 public interface IArtigoService
 {
     public Task<IEnumerable<ArtigoHomeViewModel>> GetArtigosAsync();
+    public Task<IEnumerable<ArtigoHomeViewModel>> GetArtigosPorCategoriaAsync(string categoria);
     public Task<IEnumerable<ArtigoViewModel>> GetArtigosColaboradorAsync(string id);
     public Task<IEnumerable<ArtigoViewModel>> GetArtigosParaRevisarAsync();
     public Task<IEnumerable<ArtigoPendenteDto>> GetArtigosPendentesAsync(string id);

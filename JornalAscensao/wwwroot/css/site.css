@@ -379,3 +379,62 @@ textarea {
   height: 3rem;
   width: 3rem;
 }
+
+/* Estilos para menu suspenso */
+.suspenso {
+  position: relative;
+}
+
+.menu-suspenso {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--bg-light);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--xs-border-radius);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
+  min-width: 200px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.suspenso:hover .menu-suspenso {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.menu-suspenso li {
+  border-bottom: 1px solid var(--cor-borda-secundaria);
+}
+
+.menu-suspenso li:last-child {
+  border-bottom: none;
+}
+
+.menu-suspenso a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--cor-texto);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-suspenso a:hover {
+  background-color: var(--cor-primaria);
+  color: var(--cor-text-dark);
+}
+
+/* Seta indicativa do menu suspenso */
+.suspenso > a::after {
+  content: " ▼";
+  font-size: 0.7em;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.suspenso:hover > a::after {
+  transform: rotate(180deg);
+}

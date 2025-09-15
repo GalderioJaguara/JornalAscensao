@@ -16,6 +16,9 @@ public class Artigo : BaseModel
     [MaxLength(256), DataType(DataType.Url)]
     public string? Imagem { get; set; }
     
+    [MaxLength(256)]
+    public string Categoria { get; set; }
+    
     public string? Referencias { get; set; }
 
     public StatusArtigo Status { get; set; } = StatusArtigo.Escrevendo;

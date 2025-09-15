@@ -14,7 +14,6 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
     {
         var artigosQuery = from artigo in context.Artigos
             join autor in context.Users on artigo.AutorId equals autor.Id
-            join pauta in context.Pautas on artigo.PautaId equals pauta.Id
             where artigo.Aprovado == true
             select new ArtigoHomeViewModel
             {
@@ -23,11 +22,32 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
                 Gancho = artigo.Gancho,
                 Imagem = artigo.Imagem,
                 Publicado = artigo.Publicado,
-                Categoria = pauta.Categoria,
-                AutorApelido = autor.UserName,
+                Categoria = artigo.Categoria,
+                AutorApelido = autor.Apelido,
             };
         
         return await artigosQuery.ToListAsync(); 
+    }
+
+    public async Task<IEnumerable<ArtigoHomeViewModel>> GetArtigosPorCategoriaAsync(string categoria)
+    {
+        var artigos = context.Artigos.AsNoTracking().Include(a => a.Usuario).AsQueryable();
+
+        if (!string.IsNullOrEmpty(categoria))
+        {
+            artigos = artigos.Where(a => a.Categoria == categoria);
+        }
+
+        return await artigos.Select(a => new ArtigoHomeViewModel
+        {
+            Titulo = a.Titulo,
+            Gancho = a.Gancho,
+            Imagem = a.Imagem,
+            Publicado = a.Publicado,
+            Categoria = a.Categoria,
+            AutorApelido = a.Usuario.Apelido,
+            Slug = a.Slug
+        }).ToListAsync();
     }
 
     public async Task<IEnumerable<ArtigoViewModel>> GetArtigosColaboradorAsync(string id)
@@ -134,6 +154,7 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
             Titulo = request.Titulo,
             Gancho = request.Gancho,
             Texto = request.Texto,
+            Categoria = pauta.Categoria,
             Referencias = request.Referencias,
             Imagem = request.Imagem,
             PautaId = request.PautaId,
