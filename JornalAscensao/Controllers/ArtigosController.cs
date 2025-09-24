@@ -11,17 +11,17 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     // GET
     [HttpGet]
     [Route("")]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int? page)
     {
-        var artigos = await artigoService.GetArtigosAsync();
+        var artigos = await artigoService.GetArtigosAsync(page ?? 1);
         return View(artigos);
     }
 
     [HttpGet()]
     [Route("categoria/{categoria}")]
-    public async Task<IActionResult> Categoria(string categoria)
+    public async Task<IActionResult> Categoria(string categoria, int? page)
     {
-        var artigos = await artigoService.GetArtigosPorCategoriaAsync(categoria);
+        var artigos = await artigoService.GetArtigosPorCategoriaAsync(categoria, page ?? 1);
         return View(artigos);
     }
     
@@ -132,9 +132,9 @@ public class ArtigosController(IArtigoService artigoService, IUsuarioService usu
     
     [Authorize(Roles = "Admin,Moderador,Revisor")]
     [HttpGet("fila-de-revisao")]
-    public async Task<ActionResult> Fila()
+    public async Task<ActionResult> Fila(int? page)
     {
-        var artigos = await artigoService.GetArtigosParaRevisarAsync();
+        var artigos = await artigoService.GetArtigosParaRevisarAsync(page ?? 1);
         return View(artigos);
     }
     

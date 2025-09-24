@@ -1,21 +1,17 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using JornalAscensao.Models;
+using JornalAscensao.Services.Abstraction;
 
 namespace JornalAscensao.Controllers;
 
-public class HomeController : Controller
+public class HomeController(ILogger<HomeController> logger, IHomeService homeService)  : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+   
+    public async Task<IActionResult> Index()
     {
-        _logger = logger;
-    }
-
-    public IActionResult Index()
-    {
-        return View();
+        var homeData = await homeService.GetHomeViewModelAsync();
+        return View(homeData);
     }
 
     public IActionResult Privacy()

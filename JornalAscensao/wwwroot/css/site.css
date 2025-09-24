@@ -210,6 +210,7 @@ textarea {
   margin-top: 1rem;
 }
 
+
 .button-primary {
   background-color: var(--cor-primaria) !important;
   color: var(--cor-text-dark);
@@ -223,6 +224,15 @@ textarea {
 .button-secondary {
   background-color: var(--cor-secundaria);
   color: var(--cor-texto);
+}
+
+.button-tertiary {
+  background-color: var(--cor-terciaria);
+  color: var(--cor-text-dark);
+}
+
+.button-tertiary:hover {
+  background-color: var(--cor-terciaria);
 }
 
 .button-secondary:hover {
@@ -437,4 +447,106 @@ textarea {
 
 .suspenso:hover > a::after {
   transform: rotate(180deg);
+}
+/* Paginação personalizada */
+.ascensao-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.ascensao-pagination-item {
+  display: inline-block;
+}
+
+.ascensao-pagination-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0.125rem;
+  color: var(--cor-texto);
+  background-color: var(--bg-light);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--xs-border-radius);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.ascensao-pagination-link:hover {
+  color: var(--cor-text-dark);
+  background-color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ascensao-pagination-item.active .ascensao-pagination-link {
+  color: var(--cor-text-dark);
+  background-color: var(--cor-terciaria);
+  border-color: var(--cor-terciaria);
+}
+
+.ascensao-pagination-item.disabled .ascensao-pagination-link {
+  color: var(--cor-secundaria);
+  background-color: var(--bg-light);
+  border-color: var(--cor-borda-secundaria);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.ascensao-pagination-item.disabled .ascensao-pagination-link:hover {
+  transform: none;
+  box-shadow: none;
+  background-color: var(--bg-light);
+  border-color: var(--cor-borda-secundaria);
+  color: var(--cor-secundaria);
+}
+
+/* Estilização especial para as setas */
+.ascensao-pagination-link[aria-label="Pagina anterior"],
+.ascensao-pagination-link[aria-label="Proxima pagina"] {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.ascensao-pagination-link span[aria-hidden="true"] {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+  .ascensao-pagination {
+    gap: 0.125rem;
+  }
+  
+  .ascensao-pagination-link {
+    padding: 0.375rem 0.5rem;
+    min-width: 2rem;
+    min-height: 2rem;
+    font-size: 0.8rem;
+    margin: 0 0.0625rem;
+  }
+  
+  .ascensao-pagination-link span[aria-hidden="true"] {
+    font-size: 1rem;
+  }
+}
+
+/* Hover suave para toda a navegação */
+nav .ascensao-pagination:hover .ascensao-pagination-item:not(:hover) .ascensao-pagination-link {
+  opacity: 0.7;
+}
+
+nav .ascensao-pagination .ascensao-pagination-item:hover .ascensao-pagination-link {
+  opacity: 1;
 }

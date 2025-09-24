@@ -25,7 +25,7 @@ public class PautaUtils
             new SelectListItem { Value = "Saude", Text = "Saúde" },
             new SelectListItem { Value = "Financas", Text = "Finanças" },
             new SelectListItem { Value = "Regiliao", Text = "Religião" },
-            new SelectListItem { Value = "Entreterimento", Text = "Entretenimento" },
+            new SelectListItem { Value = "Mundo", Text = "Mundo" },
             new SelectListItem { Value = "Filosofia", Text = "Filosofia" },
             new SelectListItem { Value = "Teologia", Text = "Teologia" },
             new SelectListItem { Value = "Sociologia", Text = "Sociologia" },

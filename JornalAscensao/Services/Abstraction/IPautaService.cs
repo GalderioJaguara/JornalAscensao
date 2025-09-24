@@ -5,7 +5,7 @@ namespace JornalAscensao.Services.Abstraction;
 
 public interface IPautaService
 {
-    public Task<IEnumerable<PautaViewModel>> GetPautasAsync();
+    public Task<Pagination<PautaViewModel>> GetPautasAsync(int pageIndex);
     public Task<PautaViewModel?> GetPautaAsync(Guid id);
     public Task<PautaFormViewModel> CriarPautaAsync(PautaFormViewModel request);
     public Task<PautaFormViewModel?> AtualizarPautaAsync(Guid id,PautaFormViewModel request);

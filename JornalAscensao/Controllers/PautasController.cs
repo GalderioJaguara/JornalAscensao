@@ -9,9 +9,9 @@ namespace JornalAscensao.Controllers;
 public class PautasController(IPautaService pautaService) : Controller
 {
     // GET
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page = 1)
     {
-        var pautas = await pautaService.GetPautasAsync();
+        var pautas = await pautaService.GetPautasAsync(page);
         return View(pautas);
     }
     

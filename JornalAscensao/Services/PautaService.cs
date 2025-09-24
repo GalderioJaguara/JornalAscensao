@@ -9,11 +9,12 @@ namespace JornalAscensao.Services;
 
 public class PautaService(AppDbContext context, ILogger<PautaService> logger, IUsuarioService usuarioService) : IPautaService
 {
-    public async Task<IEnumerable<PautaViewModel>> GetPautasAsync()
+    public async Task<Pagination<PautaViewModel>> GetPautasAsync(int pageIndex)
     {
         var query = from pautas in context.Pautas
             join usuarios in context.Users
                 on pautas.UsuarioId equals usuarios.Id
+                where pautas.Fechada == false
             select new PautaViewModel
             {
                 Id = pautas.Id,
@@ -29,7 +30,7 @@ public class PautaService(AppDbContext context, ILogger<PautaService> logger, IU
                 UsuarioApelido =  usuarios.Apelido,
             };
 
-        var data = await query.AsNoTracking().ToListAsync();
+        var data = await Pagination<PautaViewModel>.GetItemsPaginados(query, pageIndex, 2);
                 
         return data;
     }

@@ -9,15 +9,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d7ed489-4a83-4601-bb9e-410f45ed5fb6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Categoria.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/dataSources/9022d8ad-eaae-42a8-8c0d-ac57c659669e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/dataSources/9022d8ad-eaae-42a8-8c0d-ac57c659669e.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/HomeViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/Pagination.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IHomeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JornalAscensao/Services/HomeService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/AdminController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JornalAscensao/Controllers/ArtigosController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/ArtigosController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Models/Artigo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Models/Artigo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Controllers/PautasController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/PautasController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IArtigoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IArtigoService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IPautaService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IPautaService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/ArtigoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/ArtigoService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/IoC/ServicesInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/IoC/ServicesInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/PautaService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/PautaService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Utils/PautaUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Utils/PautaUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Admin/Artigos.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Admin/Artigos.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Admin/Pautas.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Admin/Pautas.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Categoria.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Categoria.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Fila.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Fila.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Shared/Header.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Shared/Header.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/wwwroot/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/wwwroot/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +59,10 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/76803a04e31b4fee99d90bcbfc5a6bdde8e930/a6/8e6a707c/AsyncTaskMethodBuilder`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/294078ecfce6fdb942ecfee089f09717de7a6fcfe5efd9fdb6f4f93c0fb4813/ActionMethodExecutor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2f2b1d92f1ffcf2dabd664473f8c9dafa6039595ac228ce4b75a0f1619c5991/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
@@ -74,6 +94,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -173,7 +194,14 @@
       <workItem from="1757627823670" duration="1343000" />
       <workItem from="1757633864351" duration="7359000" />
       <workItem from="1757720609799" duration="5941000" />
-      <workItem from="1757968461259" duration="4757000" />
+      <workItem from="1757968461259" duration="6629000" />
+      <workItem from="1758231106321" duration="172000" />
+      <workItem from="1758242458291" duration="120000" />
+      <workItem from="1758242687112" duration="3694000" />
+      <workItem from="1758584340563" duration="3073000" />
+      <workItem from="1758662189154" duration="5603000" />
+      <workItem from="1758743611665" duration="45000" />
+      <workItem from="1758743906842" duration="1652000" />
     </task>
     <task id="LOCAL-00001" summary="Estilização inicial do layout com variáveis CSS, adição de Partial Header, título atualizado e utils para formatação de data">
       <option name="closed" value="true" />
@@ -399,7 +427,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757727626109</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Adição de suporte à categorização de artigos, incluindo migração de banco de dados, método no controlador e estilização do menu suspenso.">
+      <option name="closed" value="true" />
+      <created>1757971348727</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1757971348727</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,7 +445,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Página de Login" />
     <MESSAGE value="Adição do serviço de usuário, incluindo interfaces, modelos e injeção de dependências" />
     <MESSAGE value="Adição do serviço de pautas, incluindo interfaces, modelos, injeção de dependências, métodos CRUD e suporte a metadados" />
     <MESSAGE value="Migrations pauta" />
@@ -434,7 +469,8 @@
     <MESSAGE value="Implementação de slugs para artigos, ajustes em serviços correspondentes, e adição de suporte a rotas amigáveis e novas funcionalidades no módulo de administração." />
     <MESSAGE value="configs" />
     <MESSAGE value="Alteração no mapeamento das rotas para uma aparência mais limpa e amigável" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alteração no mapeamento das rotas para uma aparência mais limpa e amigável" />
+    <MESSAGE value="Adição de suporte à categorização de artigos, incluindo migração de banco de dados, método no controlador e estilização do menu suspenso." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adição de suporte à categorização de artigos, incluindo migração de banco de dados, método no controlador e estilização do menu suspenso." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -452,56 +488,30 @@
           <option name="timeStamp" value="3" />
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/JornalAscensao/Controllers/AdminController.cs</url>
-          <line>37</line>
-          <properties documentPath="C:\Users\nerds\RiderProjects\JornalAscensao\JornalAscensao\Controllers\AdminController.cs" containingFunctionPresentation="Method 'Artigos'">
-            <startOffsets>
-              <option value="1431" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1432" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/JornalAscensao/Controllers/ArtigosController.cs</url>
           <line>158</line>
           <properties documentPath="C:\Users\nerds\RiderProjects\JornalAscensao\JornalAscensao\Controllers\ArtigosController.cs" containingFunctionPresentation="Method 'AprovarArtigo'">
             <startOffsets>
-              <option value="4706" />
+              <option value="4764" />
             </startOffsets>
             <endOffsets>
-              <option value="4775" />
+              <option value="4833" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/JornalAscensao/Controllers/ArtigosController.cs</url>
-          <line>53</line>
-          <properties documentPath="C:\Users\nerds\RiderProjects\JornalAscensao\JornalAscensao\Controllers\ArtigosController.cs" containingFunctionPresentation="Method 'Escrever'">
-            <startOffsets>
-              <option value="1445" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1468" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/JornalAscensao/Controllers/ArtigosController.cs</url>
           <line>55</line>
           <properties documentPath="C:\Users\nerds\RiderProjects\JornalAscensao\JornalAscensao\Controllers\ArtigosController.cs" containingFunctionPresentation="Method 'Escrever'">
             <startOffsets>
-              <option value="1491" />
+              <option value="1531" />
             </startOffsets>
             <endOffsets>
-              <option value="1550" />
+              <option value="1590" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="9" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

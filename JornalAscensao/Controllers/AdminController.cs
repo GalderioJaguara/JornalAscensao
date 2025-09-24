@@ -24,16 +24,16 @@ public class AdminController(IPautaService pautaService, IArtigoService artigoSe
     }
 
     [Authorize(Roles = "Admin, Moderador")]
-    public async Task<IActionResult> Pautas()
+    public async Task<IActionResult> Pautas(int page = 1)
     {
-        var pautas = await pautaService.GetPautasAsync();
+        var pautas = await pautaService.GetPautasAsync(page);
         return View(pautas);
     }
 
     [Authorize(Roles = "Admin, Moderador")]
-    public async Task<IActionResult> Artigos()
+    public async Task<IActionResult> Artigos(int? page)
     {
-        var artigos  = await artigoService.GetArtigosAsync();
+        var artigos  = await artigoService.GetArtigosAsync(page ?? 1);
         return View(artigos);
     }
     [Authorize(Roles = "Admin")]

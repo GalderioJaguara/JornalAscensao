@@ -1,4 +1,4 @@
-@model IEnumerable<ArtigoHomeViewModel>
+@model Pagination<ArtigoHomeViewModel>
 @using JornalAscensao.Utils
 @{
     ViewBag.Title = "Artigos dos colaboradores";
@@ -9,28 +9,75 @@
     <div>
         <h2 class="title">Artigos</h2>
     </div>
-    @if (Model != null && Model.Any())
+    @if (Model.Items != null && Model.Items.Any())
     {
         <div class="row my-4">
-            @foreach (var artigo in Model)
+            @foreach (var artigo in Model.Items)
             {
-                    <div class="col-lg-4 mb-4">
-                        <div>
-                            <img alt="@artigo.Titulo" class="card-img-top object-fit-cover image-card" src="@artigo.Imagem" loading="lazy"/>
-                        </div>
-                        <div class="p-2">
-                            <div class="pautas-card-content-header mb-2 flex-wrap">
-                                <p class="text-secondary">@LayoutUtils.GetData(@artigo.Publicado ?? DateTime.Today) </p>
-                                <p class="small text-secondary"><span class="pointer"></span>Por @artigo.AutorApelido</p>
-                            </div>
-                            <h3 class="fw-bold serif mb-2 text-break">
-                                <a class="link-artigo fs-5" asp-controller="Artigos" asp-action="Artigo" asp-route-id="@artigo.Slug">@artigo.Titulo</a>
-                            </h3>
-                            <p class="text-break" asp-controller="Artigos">@artigo.Gancho</p>
-                        </div>
+                <div class="col-lg-4 mb-4">
+                    <div>
+                        <img alt="@artigo.Titulo" class="card-img-top object-fit-cover image-card" src="@artigo.Imagem" loading="lazy"/>
                     </div>
+                    <div class="p-2">
+                        <div class="pautas-card-content-header mb-2 flex-wrap">
+                            <p class="text-secondary">@LayoutUtils.GetData(@artigo.Publicado ?? DateTime.Today) </p>
+                            <p class="small text-secondary"><span class="pointer"></span>Por @artigo.AutorApelido</p>
+                        </div>
+                        <h3 class="fw-bold serif mb-2 text-break">
+                            <a class="link-artigo fs-5" asp-controller="Artigos" asp-action="Artigo" asp-route-id="@artigo.Slug">@artigo.Titulo</a>
+                        </h3>
+                        <p class="text-break" asp-controller="Artigos">@artigo.Gancho</p>
+                    </div>
+                </div>
             }
         </div>
+        <nav class="px-4 pt-4">
+            <ul class="ascensao-pagination">
+                <li class="ascensao-pagination-item @(!Model.HasPreviousPage ? "disabled" : "")">
+                    <a class="ascensao-pagination-link" 
+                       asp-route-page="@(Model.HasPreviousPage ? Model.PageIndex - 1 : 1)" 
+                       aria-label="Pagina anterior">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                @if (Model.ShowStartEllipsis)
+                {
+                    <li class="ascensao-pagination-item">
+                        <a class="ascensao-pagination-link" asp-route-page="1">1</a>
+                    </li>
+                    <li class="ascensao-pagination-item disabled">
+                        <span class="ascensao-pagination-link">...</span>
+                    </li>
+                }
+
+                @foreach (int pageNumber in Model.GetPageRange())
+                {
+                    <li class="ascensao-pagination-item @(Model.PageIndex == pageNumber ? "active" : "")">
+                        <a class="ascensao-pagination-link" asp-route-page="@pageNumber">@pageNumber</a>
+                    </li>
+                }
+
+                @if (Model.ShowEndEllipsis)
+                {
+                    <li class="ascensao-pagination-item disabled">
+                        <span class="ascensao-pagination-link">...</span>
+                    </li>
+                    <li class="ascensao-pagination-item">
+                        <a class="ascensao-pagination-link" asp-route-page="@Model.TotalPages">@Model.TotalPages</a>
+                    </li>
+                }
+
+                <li class="ascensao-pagination-item @(!Model.HasNextPage ? "disabled" : "")">
+                    <a class="ascensao-pagination-link" 
+                       asp-route-page="@(Model.HasNextPage ? Model.PageIndex + 1 : Model.TotalPages)" 
+                       aria-label="Proxima pagina">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
     }
     else
     {

@@ -1,5 +1,5 @@
 @using JornalAscensao.Utils
-@model IEnumerable<ArtigoViewModel>
+@model Pagination<ArtigoViewModel>
 
 @{
     ViewBag.Title = "Artigos à Revisar";
@@ -23,32 +23,78 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach (var artigo in Model)
-                    {
-                        <tr>
-                            <th scope="row"><img src="@artigo.Imagem" class="rounded-1" style="width: 4rem; height: auto;"/></th> 
-                            <td>@artigo.Titulo</td>
-                            <td>
-                                <span class="btn btn-sm btn-outline-danger btn-sm rounded-5 ">@artigo.Categoria</span>
-                            </td>
-                            <td>
-                                <span class="btn btn-outline-dark btn-sm rounded-5">@ArtigoUtils.RetornarStatus(@artigo.Status)</span>
-                            </td>
-                            <td>
-                                @if (@artigo.Aprovado == true)
-                                {
-                                    <span class="btn btn-sm btn-outline-success btn-sm rounded-5">Aprovado</span>
-                                }
-                                else
-                                {
-                                    <span class="btn btn-sm btn-outline-danger btn-sm rounded-5">Não Aprovado</span>
-                                }
-                            </td>
-                            <td><a role="button" asp-action="Revisar" asp-route-id="@artigo.Slug"><i class="bi bi-pen"></i></a></td>
-                        </tr>
-                    }
+                @foreach (var artigo in Model.Items)
+                {
+                    <tr>
+                        <th scope="row"><img src="@artigo.Imagem" class="rounded-1" style="width: 4rem; height: auto;"/></th> 
+                        <td>@artigo.Titulo</td>
+                        <td>
+                            <span class="btn btn-sm btn-outline-danger btn-sm rounded-5 ">@artigo.Categoria</span>
+                        </td>
+                        <td>
+                            <span class="btn btn-outline-dark btn-sm rounded-5">@ArtigoUtils.RetornarStatus(@artigo.Status)</span>
+                        </td>
+                        <td>
+                            @if (@artigo.Aprovado == true)
+                            {
+                                <span class="btn btn-sm btn-outline-success btn-sm rounded-5">Aprovado</span>
+                            }
+                            else
+                            {
+                                <span class="btn btn-sm btn-outline-danger btn-sm rounded-5">Não Aprovado</span>
+                            }
+                        </td>
+                        <td><a role="button" asp-action="Revisar" asp-route-id="@artigo.Slug"><i class="bi bi-pen"></i></a></td>
+                    </tr>
+                }
                 </tbody>
             </table>
         </div>
+                <nav class="px-4 pt-4">
+            <ul class="ascensao-pagination">
+                <li class="ascensao-pagination-item @(!Model.HasPreviousPage ? "disabled" : "")">
+                    <a class="ascensao-pagination-link" 
+                       asp-route-page="@(Model.HasPreviousPage ? Model.PageIndex - 1 : 1)" 
+                       aria-label="Pagina anterior">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                @if (Model.ShowStartEllipsis)
+                {
+                    <li class="ascensao-pagination-item">
+                        <a class="ascensao-pagination-link" asp-route-page="1">1</a>
+                    </li>
+                    <li class="ascensao-pagination-item disabled">
+                        <span class="ascensao-pagination-link">...</span>
+                    </li>
+                }
+
+                @foreach (int pageNumber in Model.GetPageRange())
+                {
+                    <li class="ascensao-pagination-item @(Model.PageIndex == pageNumber ? "active" : "")">
+                        <a class="ascensao-pagination-link" asp-route-page="@pageNumber">@pageNumber</a>
+                    </li>
+                }
+
+                @if (Model.ShowEndEllipsis)
+                {
+                    <li class="ascensao-pagination-item disabled">
+                        <span class="ascensao-pagination-link">...</span>
+                    </li>
+                    <li class="ascensao-pagination-item">
+                        <a class="ascensao-pagination-link" asp-route-page="@Model.TotalPages">@Model.TotalPages</a>
+                    </li>
+                }
+
+                <li class="ascensao-pagination-item @(!Model.HasNextPage ? "disabled" : "")">
+                    <a class="ascensao-pagination-link" 
+                       asp-route-page="@(Model.HasNextPage ? Model.PageIndex + 1 : Model.TotalPages)" 
+                       aria-label="Proxima pagina">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>

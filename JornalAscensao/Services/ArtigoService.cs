@@ -10,11 +10,12 @@ namespace JornalAscensao.Services;
 
 public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,IPautaService pautaService, UserManager<Usuario> userManager): IArtigoService
 {
-    public async Task<IEnumerable<ArtigoHomeViewModel>> GetArtigosAsync()
+    public async Task<Pagination<ArtigoHomeViewModel>> GetArtigosAsync(int pageIndex)
     {
         var artigosQuery = from artigo in context.Artigos
             join autor in context.Users on artigo.AutorId equals autor.Id
             where artigo.Aprovado == true
+            orderby artigo.Publicado descending 
             select new ArtigoHomeViewModel
             {
                 Slug = artigo.Slug,
@@ -26,19 +27,18 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
                 AutorApelido = autor.Apelido,
             };
         
-        return await artigosQuery.ToListAsync(); 
+        
+        return await Pagination<ArtigoHomeViewModel>.GetItemsPaginados(artigosQuery, pageIndex, 1); 
     }
 
-    public async Task<IEnumerable<ArtigoHomeViewModel>> GetArtigosPorCategoriaAsync(string categoria)
+    public async Task<Pagination<ArtigoHomeViewModel>> GetArtigosPorCategoriaAsync(string categoria, int  pageIndex)
     {
-        var artigos = context.Artigos.AsNoTracking().Include(a => a.Usuario).AsQueryable();
-
-        if (!string.IsNullOrEmpty(categoria))
-        {
-            artigos = artigos.Where(a => a.Categoria == categoria);
-        }
-
-        return await artigos.Select(a => new ArtigoHomeViewModel
+        var artigos = context.Artigos.AsNoTracking()
+            .Include(a => a.Usuario)
+            .Where(a => a.Aprovado == true)
+            .Where(a => string.IsNullOrEmpty(categoria) || a.Categoria == categoria)
+            .OrderByDescending(a => a.Publicado)
+            .Select(a => new ArtigoHomeViewModel
         {
             Titulo = a.Titulo,
             Gancho = a.Gancho,
@@ -47,7 +47,14 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
             Categoria = a.Categoria,
             AutorApelido = a.Usuario.Apelido,
             Slug = a.Slug
-        }).ToListAsync();
+        });;
+
+        if (!string.IsNullOrEmpty(categoria))
+        {
+            artigos = artigos.Where(a => a.Categoria == categoria);
+        }
+        
+       return await Pagination<ArtigoHomeViewModel>.GetItemsPaginados(artigos, pageIndex, 1);
     }
 
     public async Task<IEnumerable<ArtigoViewModel>> GetArtigosColaboradorAsync(string id)
@@ -77,7 +84,7 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
         return await artigosQuery.ToListAsync(); 
     }
 
-    public async Task<IEnumerable<ArtigoViewModel>> GetArtigosParaRevisarAsync()
+    public async Task<Pagination<ArtigoViewModel>> GetArtigosParaRevisarAsync(int pageIndex)
     {
         var artigos = context.Artigos.AsNoTracking().Include(p => p.Pauta).Where(a => a.Aprovado == false)
             .Select(x => new ArtigoViewModel
@@ -90,7 +97,7 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
                 Status = x.Status,
                 Aprovado = x.Aprovado
             });
-        return await artigos.ToListAsync();
+        return await Pagination<ArtigoViewModel>.GetItemsPaginados(artigos, pageIndex, 1);
     }
 
     public async Task<IEnumerable<ArtigoPendenteDto>> GetArtigosPendentesAsync(string id)
