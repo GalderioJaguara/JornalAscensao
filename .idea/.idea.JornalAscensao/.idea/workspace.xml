@@ -8,33 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d7ed489-4a83-4601-bb9e-410f45ed5fb6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/HomeViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Models/Pagination.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IHomeService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JornalAscensao/Services/HomeService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/AdminController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Controllers/ArtigosController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/ArtigosController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Controllers/PautasController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/PautasController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IArtigoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IArtigoService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IPautaService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/Abstraction/IPautaService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/ArtigoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/ArtigoService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/IoC/ServicesInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/IoC/ServicesInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/PautaService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/PautaService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Utils/PautaUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Utils/PautaUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Admin/Artigos.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Admin/Artigos.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Admin/Pautas.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Admin/Pautas.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Categoria.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Categoria.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Fila.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Fila.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Artigos/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Pautas/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Shared/Header.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Shared/Header.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/wwwroot/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/wwwroot/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/wwwroot/css/site.css" afterDir="false" />
-    </list>
+    <list default="true" id="8d7ed489-4a83-4601-bb9e-410f45ed5fb6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,7 +175,7 @@
       <workItem from="1758584340563" duration="3073000" />
       <workItem from="1758662189154" duration="5603000" />
       <workItem from="1758743611665" duration="45000" />
-      <workItem from="1758743906842" duration="1652000" />
+      <workItem from="1758743906842" duration="2275000" />
     </task>
     <task id="LOCAL-00001" summary="Estilização inicial do layout com variáveis CSS, adição de Partial Header, título atualizado e utils para formatação de data">
       <option name="closed" value="true" />
@@ -435,7 +409,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757971348727</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Paginação adicionada para listas de artigos e pautas, incluindo ajustes nos controladores, serviços, views e estilização.">
+      <option name="closed" value="true" />
+      <created>1758756429791</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1758756429791</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,7 +427,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Adição do serviço de usuário, incluindo interfaces, modelos e injeção de dependências" />
     <MESSAGE value="Adição do serviço de pautas, incluindo interfaces, modelos, injeção de dependências, métodos CRUD e suporte a metadados" />
     <MESSAGE value="Migrations pauta" />
     <MESSAGE value="Criação de um modelo base para as entidades" />
@@ -470,7 +451,8 @@
     <MESSAGE value="configs" />
     <MESSAGE value="Alteração no mapeamento das rotas para uma aparência mais limpa e amigável" />
     <MESSAGE value="Adição de suporte à categorização de artigos, incluindo migração de banco de dados, método no controlador e estilização do menu suspenso." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adição de suporte à categorização de artigos, incluindo migração de banco de dados, método no controlador e estilização do menu suspenso." />
+    <MESSAGE value="Paginação adicionada para listas de artigos e pautas, incluindo ajustes nos controladores, serviços, views e estilização." />
+    <option name="LAST_COMMIT_MESSAGE" value="Paginação adicionada para listas de artigos e pautas, incluindo ajustes nos controladores, serviços, views e estilização." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

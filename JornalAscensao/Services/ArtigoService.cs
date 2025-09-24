@@ -28,7 +28,7 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
             };
         
         
-        return await Pagination<ArtigoHomeViewModel>.GetItemsPaginados(artigosQuery, pageIndex, 1); 
+        return await Pagination<ArtigoHomeViewModel>.GetItemsPaginados(artigosQuery, pageIndex, PaginationUtils.PageSize); 
     }
 
     public async Task<Pagination<ArtigoHomeViewModel>> GetArtigosPorCategoriaAsync(string categoria, int  pageIndex)
@@ -54,7 +54,7 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
             artigos = artigos.Where(a => a.Categoria == categoria);
         }
         
-       return await Pagination<ArtigoHomeViewModel>.GetItemsPaginados(artigos, pageIndex, 1);
+       return await Pagination<ArtigoHomeViewModel>.GetItemsPaginados(artigos, pageIndex, PaginationUtils.PageSize);
     }
 
     public async Task<IEnumerable<ArtigoViewModel>> GetArtigosColaboradorAsync(string id)
@@ -97,7 +97,7 @@ public class ArtigoService(AppDbContext context, IUsuarioService usuarioService,
                 Status = x.Status,
                 Aprovado = x.Aprovado
             });
-        return await Pagination<ArtigoViewModel>.GetItemsPaginados(artigos, pageIndex, 1);
+        return await Pagination<ArtigoViewModel>.GetItemsPaginados(artigos, pageIndex, PaginationUtils.PageSize);
     }
 
     public async Task<IEnumerable<ArtigoPendenteDto>> GetArtigosPendentesAsync(string id)

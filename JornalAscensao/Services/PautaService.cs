@@ -4,6 +4,7 @@ using JornalAscensao.Data;
 using JornalAscensao.Models;
 using JornalAscensao.Services.Abstraction;
 using Microsoft.EntityFrameworkCore;
+using JornalAscensao.Utils;
 
 namespace JornalAscensao.Services;
 
@@ -30,7 +31,7 @@ public class PautaService(AppDbContext context, ILogger<PautaService> logger, IU
                 UsuarioApelido =  usuarios.Apelido,
             };
 
-        var data = await Pagination<PautaViewModel>.GetItemsPaginados(query, pageIndex, 2);
+        var data = await Pagination<PautaViewModel>.GetItemsPaginados(query, pageIndex, PaginationUtils.PageSize);
                 
         return data;
     }
