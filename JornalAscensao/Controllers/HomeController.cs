@@ -10,8 +10,17 @@ public class HomeController(ILogger<HomeController> logger, IHomeService homeSer
    
     public async Task<IActionResult> Index()
     {
-        var homeData = await homeService.GetHomeViewModelAsync();
-        return View(homeData);
+        try
+        {
+            var homeData = await homeService.GetHomeViewModelAsync();
+            return View(homeData);
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e.Message);
+            return View();
+            
+        }
     }
 
     public IActionResult Privacy()

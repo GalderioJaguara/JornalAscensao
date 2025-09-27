@@ -6,51 +6,58 @@
 
 <div class="py-5">
     @* noticia princiapl *@
-    <div class="row">
+   
+        <div class="row">
         <div class="col-lg-9 col-md-12">
-            <div>
-                <img src="https://picsum.photos/900/300" class="img-fluid" width="900" height="300"/>
-            </div>
-            <div>
-                <div class="d-flex align-items-center gap-2 mt-4">
-                    <div>
-                        <span class="btn btn-sm rounded-5 button-tertiary fw-medium">@Model.ArtigoPrincipal.Categoria</span>
+            @if (Model.ArtigoPrincipal != null)
+            {
+                <div>
+                    <img src="https://picsum.photos/900/300" class="img-fluid" width="900" height="300" alt="Foto artigo principal"/>
+                </div>
+                <div>
+                    <div class="d-flex align-items-center gap-2 mt-4">
+                        <div>
+                            <span class="btn btn-sm rounded-5 button-tertiary fw-medium">@Model.ArtigoPrincipal.Categoria</span>
+                        </div>
+                        <span class="text-muted small">@LayoutUtils.GetMesAno(Model.ArtigoPrincipal.Publicado ?? DateTime.Now)</span>
                     </div>
-                    <span class="text-muted small">@LayoutUtils.GetMesAno(Model.ArtigoPrincipal.Publicado ?? DateTime.Now)</span>
+                    <div class="mt-2">
+                        <h3 class="serif text-primary fw-bold">@Model.ArtigoPrincipal.Titulo</h3>
+                    </div>
                 </div>
-                <div class="mt-2">
-                    <h3 class="serif text-primary fw-bold">@Model.ArtigoPrincipal.Titulo</h3>
-                </div>
-            </div>
+            }
         </div>
         @* Ultimas noticias aside *@
         <aside class="col-lg-3 col-md-12">
             <h2 class="serif text-primary fw-bold fs-4">Últimos Artigos</h2>
-           @foreach (var ultimosArtigos in Model.UltimosArtigos)
+          @if (Model.UltimosArtigos != null && Model.UltimosArtigos.Any())
             {
-                <a asp-controller="Artigos" asp-action="Artigo" asp-route-id="@ultimosArtigos.Slug">
-                    <div class="mt-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <div>
-                                <img src="@ultimosArtigos.Imagem" class="object-fit-cover" width="120"
-                                     height="80" alt="@ultimosArtigos.Slug"/>
-                            </div>
-                            <div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <div>
-                                        <span class="btn btn-sm rounded-5 button-tertiary fw-medium">@ultimosArtigos.Categoria</span>
-                                    </div>
-                                    <span class="small text-muted">@LayoutUtils.GetMesAno(ultimosArtigos.Publicado ?? DateTime.Now)</span>
+                @foreach (var ultimosArtigos in Model.UltimosArtigos)
+                {
+                    <a asp-controller="Artigos" asp-action="Artigo" asp-route-id="@ultimosArtigos.Slug">
+                        <div class="mt-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div>
+                                    <img src="@ultimosArtigos.Imagem" class="object-fit-cover" width="120"
+                                         height="80" alt="@ultimosArtigos.Slug"/>
                                 </div>
-                                <h4 class="fs-6 mt-2 fw-medium ">
-                                    @ultimosArtigos.Titulo 
-                                </h4>
+                                <div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div>
+                                            <span class="btn btn-sm rounded-5 button-tertiary fw-medium">@ultimosArtigos.Categoria</span>
+                                        </div>
+                                        <span class="small text-muted">@LayoutUtils.GetMesAno(ultimosArtigos.Publicado ?? DateTime.Now)</span>
+                                    </div>
+                                    <h4 class="fs-6 mt-2 fw-medium ">
+                                        @ultimosArtigos.Titulo 
+                                    </h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a> 
-            } 
-            
+                    </a> 
+                } 
+            }
+
         </aside>
     </div>
     

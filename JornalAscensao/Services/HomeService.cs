@@ -9,39 +9,39 @@ public class HomeService(AppDbContext context, ILogger<HomeService> logger) : IH
 {
     public async Task<HomeViewModel> GetHomeViewModelAsync()
     {
-        var artigosQuery = context.Artigos.AsNoTracking().OrderByDescending(a => a.Criado);
+                var artigosQuery = context.Artigos.AsNoTracking().OrderByDescending(a => a.Criado);
         var artigoPrincipal = await artigosQuery.Include(a => a.Usuario).Select(a => new ArtigoHomeViewModel()
         {
-            Titulo = a.Titulo,
-            Slug = a.Slug,
-            Categoria = a.Categoria,
-            AutorApelido = a.Usuario.Apelido,
-            Gancho = a.Gancho,
-            Imagem = a.Imagem,
-            Publicado = a.Publicado
+            Titulo = a.Titulo ?? string.Empty,
+            Slug = a.Slug ?? string.Empty,
+            Categoria = a.Categoria ?? string.Empty,
+            AutorApelido = a.Usuario.Apelido ?? string.Empty,
+            Gancho = a.Gancho ?? string.Empty,
+            Imagem = a.Imagem ?? string.Empty,
+            Publicado = a.Publicado ?? null 
         }).FirstOrDefaultAsync();
 
         var artigosPolitica = await artigosQuery.Where(a => a.Categoria == "Politica").Select(a =>
             new ArtigoHomeViewModel()
             {
-                Titulo = a.Titulo,
-                Slug = a.Slug,
-                Imagem = a.Imagem
+                Titulo = a.Titulo ?? string.Empty,
+                Slug = a.Slug ?? string.Empty,
+                Imagem = a.Imagem ?? string.Empty
             }).ToListAsync();
 
         var artigosEconomia = await artigosQuery.Where(a => a.Categoria == "Economia")
             .Select(a => new ArtigoHomeViewModel()
             {
-                Titulo = a.Titulo,
-                Slug = a.Slug,
-                Imagem = a.Imagem,
+                Titulo = a.Titulo ?? string.Empty,
+                Slug = a.Slug ?? string.Empty,
+                Imagem = a.Imagem ?? string.Empty,
             }).ToListAsync();
 
         var artigosMundo = await artigosQuery.Where(a => a.Categoria == "Mundo").Select(a => new ArtigoHomeViewModel()
         {
-            Titulo = a.Titulo,
-            Imagem = a.Imagem,
-            Slug = a.Slug
+            Titulo = a.Titulo ?? string.Empty,
+            Imagem = a.Imagem ?? string.Empty,
+            Slug = a.Slug ?? string.Empty
         }).ToListAsync();
 
 
@@ -52,21 +52,21 @@ public class HomeService(AppDbContext context, ILogger<HomeService> logger) : IH
 
         var ultimosArtigos = ultimosArtigosQuery.Select(a => new ArtigoHomeViewModel()
         {
-            Titulo = a.Titulo,
-            Slug = a.Slug,
-            Imagem = a.Imagem,
-            Categoria = a.Categoria
+            Titulo = a.Titulo ?? string.Empty,
+            Slug = a.Slug  ?? string.Empty,
+            Imagem = a.Imagem  ?? string.Empty,
+            Categoria = a.Categoria  ?? string.Empty,
         }).ToList();
 
 
 
-    return new HomeViewModel()
+        return new HomeViewModel()
         {
-            UltimosArtigos = ultimosArtigos, 
-            ArtigoPrincipal = artigoPrincipal, 
-            ArtigosEconomia = artigosEconomia,
-            ArtigosMundo = artigosMundo,
-            ArtigosPolitica = artigosPolitica
+            UltimosArtigos = ultimosArtigos ?? new List<ArtigoHomeViewModel>(), 
+            ArtigoPrincipal = artigoPrincipal ?? null, 
+            ArtigosEconomia = artigosEconomia  ?? new List<ArtigoHomeViewModel>(),
+            ArtigosMundo = artigosMundo ?? new List<ArtigoHomeViewModel>(),
+            ArtigosPolitica = artigosPolitica ?? new List<ArtigoHomeViewModel>()
         };
         
     }
