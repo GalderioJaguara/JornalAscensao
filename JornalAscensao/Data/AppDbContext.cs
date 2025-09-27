@@ -8,6 +8,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbCo
 {
     public DbSet<Pauta> Pautas { get; set; }
     public DbSet<Artigo> Artigos { get; set; }
+
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
