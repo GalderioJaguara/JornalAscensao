@@ -18,7 +18,7 @@ public class HomeController(ILogger<HomeController> logger, IHomeService homeSer
         catch (Exception e)
         {
             logger.LogError(e.Message);
-            return View();
+            return View(new HomeViewModel());
             
         }
     }

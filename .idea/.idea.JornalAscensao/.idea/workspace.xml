@@ -10,31 +10,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8d7ed489-4a83-4601-bb9e-410f45ed5fb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JornalAscensao/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao.sln" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JornalAscensao/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Data/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Data/IoC/DatabaseInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Data/IoC/DatabaseInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/JornalAscensao.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/JornalAscensao.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250902151229_Usuario.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250902151229_Usuario.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250902204413_Pauta.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250902204413_Pauta.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250902220101_Artigo.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250902220101_Artigo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250908163237_UserCriadoAtualizadoExcluido.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250908163237_UserCriadoAtualizadoExcluido.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250909130143_ArtigoSlug.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250909130143_ArtigoSlug.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250911214928_SlugUnique.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250911214928_SlugUnique.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250915210211_CategoriaArtigo.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/20250915210211_CategoriaArtigo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Models/HomeViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Models/HomeViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Services/HomeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Services/HomeService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JornalAscensao/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JornalAscensao/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JornalAscensao/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/JornalAscensao/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +42,9 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/76803a04e31b4fee99d90bcbfc5a6bdde8e930/a6/8e6a707c/AsyncTaskMethodBuilder`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/294078ecfce6fdb942ecfee089f09717de7a6fcfe5efd9fdb6f4f93c0fb4813/ActionMethodExecutor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2f2b1d92f1ffcf2dabd664473f8c9dafa6039595ac228ce4b75a0f1619c5991/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
@@ -80,30 +64,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.JornalAscensao: http.executor": "Run",
-    ".NET Launch Settings Profile.JornalAscensao: https.executor": "Run",
-    "Docker.compose.yaml: Compose Deployment.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.JornalAscensao: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.JornalAscensao: https.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.compose.yaml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql",
-      "sqlserver.localdb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;,
+      &quot;sqlserver.localdb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.JornalAscensao: https">
     <configuration name="JornalAscensao: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/JornalAscensao/JornalAscensao.csproj" />
@@ -206,6 +190,7 @@
       <workItem from="1758845058317" duration="7488000" />
       <workItem from="1758868842274" duration="1386000" />
       <workItem from="1758922035570" duration="4444000" />
+      <workItem from="1759016337319" duration="6680000" />
     </task>
     <task id="LOCAL-00001" summary="Estilização inicial do layout com variáveis CSS, adição de Partial Header, título atualizado e utils para formatação de data">
       <option name="closed" value="true" />
