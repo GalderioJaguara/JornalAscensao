@@ -6,6 +6,7 @@
       dockerfile: JornalAscensao/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=ascensao-postgres;Port=5432;Database=jornal_ascensao;Username=postgres;Password=DDREzNlJI98FhpZ6SG4BePGCarQPmm
     ports:
       - "8080:8080"
     depends_on:
